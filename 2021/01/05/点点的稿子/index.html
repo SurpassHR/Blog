@@ -16,7 +16,7 @@
 <meta property="og:description" content="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改3.通过Device和Deviceht来新建设备实体和温湿度状态4.这些方法通过Shell框架读取cmd.properties中的命令行属性配置来实现后端命令的调用，包括12345add  添加delete">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-05T04:38:14.000Z">
-<meta property="article:modified_time" content="2021-01-21T08:11:33.859Z">
+<meta property="article:modified_time" content="2021-01-21T08:15:04.462Z">
 <meta property="article:author" content="Hugaotuan">
 <meta property="article:tag" content="日常">
 <meta property="article:tag" content="学业">
@@ -173,6 +173,8 @@
     <div class="article-entry" itemprop="articleBody">
         
         <h4 id="1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查"><a href="#1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查" class="headerlink" title="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查"></a>1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查</h4><h4 id="2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"><a href="#2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改" class="headerlink" title="2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"></a>2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改</h4><h4 id="3-通过Device和Deviceht来新建设备实体和温湿度状态"><a href="#3-通过Device和Deviceht来新建设备实体和温湿度状态" class="headerlink" title="3.通过Device和Deviceht来新建设备实体和温湿度状态"></a>3.通过Device和Deviceht来新建设备实体和温湿度状态</h4><h4 id="4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括"><a href="#4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括" class="headerlink" title="4.这些方法通过Shell框架读取cmd.properties中的命令行属性配置来实现后端命令的调用，包括"></a>4.这些方法通过Shell框架读取<code>cmd.properties</code>中的命令行属性配置来实现后端命令的调用，包括</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add  添加</span><br><span class="line"><span class="keyword">delete</span>  删除</span><br><span class="line">help  命令帮助</span><br><span class="line"><span class="built_in">list</span>  列出设备</span><br><span class="line">val  开关阀门</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <h4 id="5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"><a href="#5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定" class="headerlink" title="5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht_device表的主键id和ht_deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"></a>5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有<code>ht_device</code>表的主键<code>id</code>和<code>ht_deviceht</code>表的外键<code>deviceid</code>关联，由此实现了数据库设备信息与温湿度信息的绑定</h4><h4 id="6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"><a href="#6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务" class="headerlink" title="6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"></a>6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务</h4><h4 id="7-开启Shell命令行主循环完成实验"><a href="#7-开启Shell命令行主循环完成实验" class="headerlink" title="7.开启Shell命令行主循环完成实验"></a>7.开启Shell命令行主循环完成实验</h4><h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.输入help   &#x2F;&#x2F; 此时会显示所有能够操作的命令</span><br><span class="line">2.输入add 001  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，可以打开navicat看一下</span><br><span class="line">3.输入add 002  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，打开查看记得刷新，或者输入list命令查看</span><br><span class="line">4.输入del 001  &#x2F;&#x2F; 此时会删除id为1的设备</span><br><span class="line">5.打开虚拟终端手动发送几个  &#x2F;&#x2F; 打开tb_deviceht表查看</span><br><span class="line">6.输入val 001 1  &#x2F;&#x2F; 此时打开虚拟终端，可以看到阀门变绿，被打开</span><br><span class="line">7.输入val 001 0  &#x2F;&#x2F; 此时打开虚拟终端，阀门变红，被关闭</span><br><span class="line">8.完成</span><br></pre></td></tr></table></figure>
 
         
@@ -418,15 +420,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
               </li>
             
             <div class="clearfix"></div>

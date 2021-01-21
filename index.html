@@ -171,15 +171,9 @@
     <div class="article-entry" itemprop="articleBody">
         
         <h2 id="java客户端部分"><a href="#java客户端部分" class="headerlink" title="java客户端部分"></a>java客户端部分</h2><h4 id="1-开始，在ShellMain启动shell主循环"><a href="#1-开始，在ShellMain启动shell主循环" class="headerlink" title="1. 开始，在ShellMain启动shell主循环"></a>1. 开始，在<code>ShellMain</code>启动shell主循环</h4><h4 id="2-在shell中输入start命令，启动服务器侦听服务"><a href="#2-在shell中输入start命令，启动服务器侦听服务" class="headerlink" title="2.在shell中输入start命令，启动服务器侦听服务"></a>2.在shell中输入<code>start</code>命令，启动服务器侦听服务</h4><h4 id="3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"><a href="#3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变" class="headerlink" title="3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"></a>3.服务器启动端口号<code>PORT</code>设置的本地代理服务地址，对应的远程连接地址可以在<code>cmd</code>中通过<code>ipconfig</code>查看，开放端口号不变</h4><p> <a target="_blank" rel="noopener" href="https://imgchr.com/i/s8acrj"><img src="https://s3.ax1x.com/2021/01/11/s8acrj.png" alt="s8acrj.png"></a></p>
-<h4 id="4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"><a href="#4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket" class="headerlink" title="4.每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"></a>4.每次启动一个<code>server</code>或者<code>client</code>会启动一个相应的<code>socket</code>，并将该<code>socket</code>添加到<code>socketList</code>，同样的当输入指令<code>close</code>关闭侦听时，会关闭对应的<code>socket</code></h4><h4 id="5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器"><a href="#5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器" class="headerlink" title="5.启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127.0.0.1连接到已启动的服务器"></a>5.启动后可以使用虚拟终端通过设置好的端口号<code>PORT</code>和本地回送地址<code>127.0.0.1</code>连接到已启动的服务器</h4><p><img src="https://s3.ax1x.com/2021/01/11/s8arRS.png" alt="s8arRS.png"></p>
-<h4 id="6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将"><a href="#6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将" class="headerlink" title="6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将"></a>6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将</h4><p><strong>该设备的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">valvestate 阀门状态</span><br><span class="line">lastupdatetime 最近状态更新时间</span><br><span class="line">id 设备id</span><br><span class="line">state 设备当前状态(在线&#x2F;离线)</span><br><span class="line">ip 设备网络位置</span><br><span class="line">tcpport 设备连接端口号</span><br></pre></td></tr></table></figure>
-<p><strong>和该设备温湿度信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">H 湿度</span><br><span class="line">T 温度</span><br><span class="line">deviceid 温湿度绑定的设备号</span><br><span class="line">updatetime 该条信息更新时间</span><br></pre></td></tr></table></figure>
-<h4 id="发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化"><a href="#发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化" class="headerlink" title="发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化"></a>发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化</h4><h2 id="移动终端-安卓-App部分"><a href="#移动终端-安卓-App部分" class="headerlink" title="移动终端(安卓)App部分"></a>移动终端(安卓)App部分</h2><h4 id="1-通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接"><a href="#1-通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接" class="headerlink" title="1.通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接"></a>1.通过<code>tcp</code>协议，远程连接对应的服务器端口，如果是虚拟机则类似于<code>Wifi</code>局域网连接</h4><h4 id="2-在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello-World-，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面"><a href="#2-在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello-World-，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面" class="headerlink" title="2.在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello World!，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面"></a>2.在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个<code>toast</code>提示<code>Hello World!</code>，主界面中只设置了一个<code>button</code>控件对应在<code>MainActivity</code>中的动作–得到<code>editText</code>控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过<code>Intent</code>完成启动<code>Activity</code>，启动<code>Service</code>，发送<code>Broadcast</code>的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面</h4><h4 id="4-设置数据库远程连接权限"><a href="#4-设置数据库远程连接权限" class="headerlink" title="4.设置数据库远程连接权限"></a>4.设置数据库远程连接权限</h4><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sGkyUx"><img src="https://s3.ax1x.com/2021/01/11/sGkyUx.png" alt="sGkyUx.png"></a></p>
-<p><code>mysql&gt; update user set user host = &#39;%s&#39; where user = &#39;root&#39;;</code></p>
-<p><code>mysql&gt; flush privileges;</code></p>
-<h4 id="3-阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型-appcontrolvalve-，did：设备id，valve：需要将阀门变换的状态-0-1-，该命令-0-1-的选择由一个switch控件决定"><a href="#3-阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型-appcontrolvalve-，did：设备id，valve：需要将阀门变换的状态-0-1-，该命令-0-1-的选择由一个switch控件决定" class="headerlink" title="3.阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型(appcontrolvalve)，did：设备id，valve：需要将阀门变换的状态(0/1)，该命令(0/1)的选择由一个switch控件决定"></a>3.阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，<code>cmd</code>：执行的执行的命令类型(appcontrolvalve)，<code>did</code>：设备id，<code>valve</code>：需要将阀门变换的状态(0/1)，该命令(0/1)的选择由一个<code>switch</code>控件决定</h4><h4 id="4-客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log-d-quot-hello-quot-quot-query-0-quot-分割，说明客户端与服务器连接正常"><a href="#4-客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log-d-quot-hello-quot-quot-query-0-quot-分割，说明客户端与服务器连接正常" class="headerlink" title="4.客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log.d(&quot;hello&quot;, &quot;query:0==================&quot;)分割，说明客户端与服务器连接正常"></a>4.客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则<code>Toast</code>提示”连接失败”，在<code>run</code>后台中可以看到持续的请求发送，之间使用<code>Log.d(&quot;hello&quot;, &quot;query:0==================&quot;)</code>分割，说明客户端与服务器连接正常</h4>
+        
+        <a class="article-more-a" href="/Blog/2021/01/11/%E5%A4%A7%E4%BD%9C%E4%B8%9A/#more">more >></a>
+        
         
 
         
@@ -256,8 +250,9 @@
     <div class="article-entry" itemprop="articleBody">
         
         <h4 id="1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查"><a href="#1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查" class="headerlink" title="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查"></a>1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查</h4><h4 id="2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"><a href="#2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改" class="headerlink" title="2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"></a>2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改</h4><h4 id="3-通过Device和Deviceht来新建设备实体和温湿度状态"><a href="#3-通过Device和Deviceht来新建设备实体和温湿度状态" class="headerlink" title="3.通过Device和Deviceht来新建设备实体和温湿度状态"></a>3.通过Device和Deviceht来新建设备实体和温湿度状态</h4><h4 id="4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括"><a href="#4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括" class="headerlink" title="4.这些方法通过Shell框架读取cmd.properties中的命令行属性配置来实现后端命令的调用，包括"></a>4.这些方法通过Shell框架读取<code>cmd.properties</code>中的命令行属性配置来实现后端命令的调用，包括</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add  添加</span><br><span class="line"><span class="keyword">delete</span>  删除</span><br><span class="line">help  命令帮助</span><br><span class="line"><span class="built_in">list</span>  列出设备</span><br><span class="line">val  开关阀门</span><br></pre></td></tr></table></figure>
-<h4 id="5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"><a href="#5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定" class="headerlink" title="5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht_device表的主键id和ht_deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"></a>5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有<code>ht_device</code>表的主键<code>id</code>和<code>ht_deviceht</code>表的外键<code>deviceid</code>关联，由此实现了数据库设备信息与温湿度信息的绑定</h4><h4 id="6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"><a href="#6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务" class="headerlink" title="6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"></a>6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务</h4><h4 id="7-开启Shell命令行主循环完成实验"><a href="#7-开启Shell命令行主循环完成实验" class="headerlink" title="7.开启Shell命令行主循环完成实验"></a>7.开启Shell命令行主循环完成实验</h4><h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.输入help   &#x2F;&#x2F; 此时会显示所有能够操作的命令</span><br><span class="line">2.输入add 001  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，可以打开navicat看一下</span><br><span class="line">3.输入add 002  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，打开查看记得刷新，或者输入list命令查看</span><br><span class="line">4.输入del 001  &#x2F;&#x2F; 此时会删除id为1的设备</span><br><span class="line">5.打开虚拟终端手动发送几个  &#x2F;&#x2F; 打开tb_deviceht表查看</span><br><span class="line">6.输入val 001 1  &#x2F;&#x2F; 此时打开虚拟终端，可以看到阀门变绿，被打开</span><br><span class="line">7.输入val 001 0  &#x2F;&#x2F; 此时打开虚拟终端，阀门变红，被关闭</span><br><span class="line">8.完成</span><br></pre></td></tr></table></figure>
-
+        
+        <a class="article-more-a" href="/Blog/2021/01/05/%E7%82%B9%E7%82%B9%E7%9A%84%E7%A8%BF%E5%AD%90/#more">more >></a>
+        
         
 
         
@@ -334,92 +329,9 @@
     <div class="article-entry" itemprop="articleBody">
         
         <h3 id="字和字节"><a href="#字和字节" class="headerlink" title="字和字节"></a>字和字节</h3><p>一个系统<strong>字</strong>的位数取决于这个系统的架构，32系统一字为32位，64位系统一字为64位，一字节为8位是不变的，所以32位系统（如ARM）一字为4字节，x64架构windows一字为8字节，16位如Thumb，（ARM指令子集）一字为2字节。</p>
-<h3 id="大小端"><a href="#大小端" class="headerlink" title="大小端"></a>大小端</h3><h5 id="如0x2000-0x2003写入数据0x12345678"><a href="#如0x2000-0x2003写入数据0x12345678" class="headerlink" title="如0x2000-0x2003写入数据0x12345678"></a>如<code>0x2000-0x2003</code>写入数据<code>0x12345678</code></h5><h4 id="小端"><a href="#小端" class="headerlink" title="小端"></a>小端</h4><p>数值的低位-》地址的低位</p>
-<table>
-    <tr>
-        <th>0x2003</th>
-        <th>0x2002</th>
-        <th>0x2001</th>
-        <th>0x2000</th>
-    </tr>
-    <tr>
-        <th>0x12000000</th>
-        <th>0x00340000</th>
-        <th>0x00005600</th>
-        <th>0x00000078</th>
-    </tr>
-</table>
-
-<h4 id="大端"><a href="#大端" class="headerlink" title="大端"></a>大端</h4><p>数值的低位-》地址的高位</p>
-<table>
-    <tr>
-        <th>0x2003</th>
-        <th>0x2002</th>
-        <th>0x2001</th>
-        <th>0x2000</th>
-    </tr>
-    <tr>
-        <th>0x00000078</th>
-        <th>0x00005600</th>
-        <th>0x00340000</th>
-        <th>0x12000000</th>
-    </tr>
-</table>
-
-<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><table>
-    <tr>
-        <th>MCU</th>
-        <th>嵌入式微控制器 Micro Contoller Uint</th>
-    </tr>
-    <tr>
-        <th>RTOS</th>
-        <th>实时操作系统 Real-Time Operation System</th>
-    </tr>
-    <tr>
-        <th>MMU</th>
-        <th>内存管理单元 Memory Manager Unit</th>
-    </tr>
-    <tr>
-        <th>UART</th>
-        <th>通用异步收发传输器 Universal Asynchronous Receiver/Transmitter</th>
-    </tr>
-    <tr>
-        <th>CPSR</th>
-        <th>当前程序状态寄存器 Current Program Status Register</th>
-    </tr>
-    <tr>
-        <th>GPIO</th>
-        <th>通用输入/输出端口 General-purpose input/output</th>
-    </tr>
-    <tr>
-        <th>VIC</th>
-        <th>向量中断控制器 Vectiored Interrupt Controller</th>
-    </tr>
-    <tr>
-        <th>RISC</th>
-        <th>精简指令集计算机 Reduced Instruction Set Computer</th>
-    </tr>
-    <tr>
-        <th>Fpclk</th>
-        <th>VPB外设时钟频率 F for Frequncy</th>
-    </tr>
-    <tr>
-        <th>AHB</th>
-        <th>先进的高性能总线 Advanced High-Performance Bus</th>
-    </tr>
-</table>
-
-<h3 id="IRQ中断如何进入"><a href="#IRQ中断如何进入" class="headerlink" title="IRQ中断如何进入"></a>IRQ中断如何进入</h3><ol>
-<li><p>将异常处理程序的返回地址（加固定的偏移量）保存到相应异常模式下的LR</p>
-</li>
-<li><p>将CPSR的当前值保存到相应异常模式下的SPSR</p>
-</li>
-<li><p>设置CPSR为相应的异常模式</p>
-</li>
-<li><p>设置PC为相应异常处理程序的中断入口向量地址，跳转到相应的异常中断处理程序执行</p>
-</li>
-</ol>
-
+        
+        <a class="article-more-a" href="/Blog/2021/01/03/%E5%B5%8C%E5%85%A5%E5%BC%8F/#more">more >></a>
+        
         
 
         
@@ -499,9 +411,9 @@
 <p>参数前没有<code>-</code>的是 BSD风格。</p>
 <h2 id="System-V中按照-和-划分"><a href="#System-V中按照-和-划分" class="headerlink" title="System V中按照--和-划分"></a>System V中按照<code>--</code>和<code>-</code>划分</h2><p><code>-</code>的后面跟的是字符<code>ls -a</code></p>
 <p><code>--</code>后面跟的是字符串或者说单词<code>cp --help</code></p>
-<h2 id="另：cd和cd-d"><a href="#另：cd和cd-d" class="headerlink" title="另：cd和cd /d"></a>另：<code>cd</code>和<code>cd /d</code></h2><p><code>cd</code>不会修改当前盘符</p>
-<p><code>cd /d</code>会修改当前盘符</p>
-
+        
+        <a class="article-more-a" href="/Blog/2020/12/09/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84--%E5%92%8C-/#more">more >></a>
+        
         
 
         
@@ -580,14 +492,9 @@
         <p>1.安装服务（若未配置bin环境则在bin目录下打开cmd）<code>mysqld --install</code></p>
 <p>2.初始化<code>mysqld --initialize --console</code>记下<code>root@localhost</code>的临时密码</p>
 <p>3.启动服务<code>net start MySql</code></p>
-<p>4.登录<code>mysql -u root -p</code>输入密码</p>
-<ul>
-<li>我的mysql root用户密码为<code>000530</code></li>
-</ul>
-<p>5.修改密码<code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;&lt;password&gt;&#39;</code>输入密码</p>
-<p>6.<code>exit</code>退出然后重新登陆<code>mysql -u root -p</code>验证新密码</p>
-<p>7.删除mysql服务<code>sc delete mysql</code></p>
-
+        
+        <a class="article-more-a" href="/Blog/2020/12/09/MySql%E5%88%9D%E5%A7%8B%E5%8C%96/#more">more >></a>
+        
         
 
         
@@ -668,25 +575,9 @@
 <p>js运行环境：Nodejs</p>
 <h4 id="Note-2020-09-05-推翻了之前的一个猜想，base-js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase-py可以得到算法的完整内容。"><a href="#Note-2020-09-05-推翻了之前的一个猜想，base-js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase-py可以得到算法的完整内容。" class="headerlink" title="@Note 2020-09-05 推翻了之前的一个猜想，base.js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase.py可以得到算法的完整内容。"></a>@Note 2020-09-05 推翻了之前的一个猜想，base.js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行<code>getDecodeBase.py</code>可以得到算法的完整内容。</h4><h4 id="Note-2020-09-07-根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne-py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接-下载的能力，更新也告一段落，必要时-闲的蛋疼时-会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。"><a href="#Note-2020-09-07-根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne-py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接-下载的能力，更新也告一段落，必要时-闲的蛋疼时-会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。" class="headerlink" title="@Note 2020-09-07 根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne.py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接+下载的能力，更新也告一段落，必要时(闲的蛋疼时)会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。"></a>@Note 2020-09-07 根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行<code>decodeAllinOne.py</code>来更新解密算法。至此，YSD在短时间内拥有了独立解析链接+下载的能力，更新也告一段落，必要时(闲的蛋疼时)会继续完成<a href="#To-Do">To-Do</a>中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。</h4><h2 id="What-you-should-do-to-build-the-environment"><a href="#What-you-should-do-to-build-the-environment" class="headerlink" title="What you should do to build the environment"></a>What you should do to build the environment</h2><p>1.<code>pip install -r requirement.txt</code></p>
 <p>2.<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js官网</a>下载Node.js并按照默认设置安装</p>
-<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>1.下载zip文件后解压</p>
-<p>2.在当前目录打开cmd命令提示窗</p>
-<p>3.输入<code>pip install -r requirements.txt</code>回车，自动配置（实际上除requests之外都是更新）</p>
-<p>4.cmd输入<code>py decodeAllinOne.py</code>，待录入完成后关闭，出现<code>base_history</code>文件夹，算法源文件</p>
-<p>5.仍然是cmd，输入<code>py YSD.py</code></p>
-<p>6.出现<code>input video address:</code>后，输入ytb地址</p>
-<p>7.在提示<code>用时...</code>后表示已经下载完成</p>
-<p>8.目录下出现<code>video</code>和<code>audio</code>两个文件夹，音频视频分别保存，自动命名</p>
-<h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><p>1.该项目修改自<code>Youtube_SingnatureCipher_Decryptor</code>，增加了多线程下载、自动规范命名格式，修复了多线程文件合并后导致的只能播放一半的问题</p>
-<p>2.下载速度取决于网络，在push仓库之前的测试中平均下载速度为10m每秒，峰值20m，可以自行修改线程数及其上限<code>threadsDownload.py line:96 # if all_thread &gt; 10:</code>（按照文件大小每5m开启一个线程，酌情更改），但会增加cpu占用</p>
-<p>3.默认开启了日志，可以在<code>YSD.py line:57 # logOn = True</code>将<code>True</code>改为<code>False</code>，然后删除目录下的<code>log</code>文件夹即可</p>
-<p>4.本程序只用作学习用途</p>
-<h3 id="下载示范："><a href="#下载示范：" class="headerlink" title="下载示范："></a>下载示范：</h3><p><img src="https://s1.ax1x.com/2020/09/03/wCfaPf.png" alt="wCfaPf.png"><br><img src="https://s1.ax1x.com/2020/09/03/wCfdG8.png" alt="wCfdG8.png"></p>
-<h2 id="To-Do"><a href="#To-Do" class="headerlink" title="To-Do:"></a>To-Do:</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> 多线程</li>
-<li><input disabled="" type="checkbox"> GUI</li>
-<li><input disabled="" type="checkbox"> 编译可执行文件</li>
-</ul>
-
+        
+        <a class="article-more-a" href="/Blog/2020/09/02/README/#more">more >></a>
+        
         
 
         
@@ -842,23 +733,9 @@
 <ul>
 <li>在<code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\</code>添加了项<code>Google\Chrome</code>和<code>Chrome</code>下的<code>DWORD</code>值<code>EnableBookmarkBar=0</code>以隐藏Chrome书签栏</li>
 </ul>
-<p>2020-08-26  <code>win10 2004 19041.450</code></p>
-<ul>
-<li>使用注册表项注入方法将键<code>HKEY_CLASSES_ROOT\*\Shell\用 NotePad2打开</code>、<code>HKEY_CLASSES_ROOT\*\Shell\用 NotePad2打开</code>，值<code>&quot;G:\\Program Files\\notepad2\\Notepad2.exe \&quot;%L\&quot;&quot;</code>添加到注册表项，将Notepad2添加到右键菜单，开头使用<code>Windows Registry Editor Version 5.00</code>标记，编码格式<code>ANSI</code><ul>
-<li>2020-08-31</li>
-<li>补注：删除该项</li>
-</ul>
-</li>
-</ul>
-<p>2020-08-31 <code>win10 2004 19041.450</code></p>
-<ul>
-<li>在<code>\HKEY_CLASSES_ROOT\Directory\Background\shell\</code>添加了项<code>Sublime Text\command</code>以使用Sublime Text打开文件夹</li>
-</ul>
-<p>2020-12-05 <code>win10 20H2 19042.662</code></p>
-<ul>
-<li>在<code>\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\</code>添加了项<code>Sublime Text\command</code>以使用Sublime Text打开文件</li>
-</ul>
-
+        
+        <a class="article-more-a" href="/Blog/2020/08/24/%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%94%B9%E5%8A%A8/#more">more >></a>
+        
         
 
         
@@ -1007,15 +884,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
               </li>
             
             <div class="clearfix"></div>

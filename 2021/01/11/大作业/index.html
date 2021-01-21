@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://github.com/SurpassHR/Blog">
   <title>大作业 | 胡高团のHyperSpace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java客户端部分1. 开始，在ShellMain启动shell主循环2.在shell中输入start命令，启动服务器侦听服务3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变  4.每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close">
+  <meta name="description" content="java客户端部分1. 开始，在ShellMain启动shell主循环2.在shell中输入start命令，启动服务器侦听服务3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大作业">
 <meta property="og:url" content="https://github.com/SurpassHR/Blog/2021/01/11/%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
 <meta property="og:site_name" content="胡高团のHyperSpace">
-<meta property="og:description" content="java客户端部分1. 开始，在ShellMain启动shell主循环2.在shell中输入start命令，启动服务器侦听服务3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变  4.每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close">
+<meta property="og:description" content="java客户端部分1. 开始，在ShellMain启动shell主循环2.在shell中输入start命令，启动服务器侦听服务3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变">
 <meta property="og:locale">
 <meta property="og:image" content="https://s3.ax1x.com/2021/01/11/s8acrj.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/01/11/s8arRS.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/01/11/sGkyUx.png">
 <meta property="article:published_time" content="2021-01-11T14:22:15.000Z">
-<meta property="article:modified_time" content="2021-01-21T08:11:22.615Z">
+<meta property="article:modified_time" content="2021-01-21T08:14:51.838Z">
 <meta property="article:author" content="Hugaotuan">
 <meta property="article:tag" content="日常">
 <meta property="article:tag" content="学业">
@@ -177,6 +177,8 @@
     <div class="article-entry" itemprop="articleBody">
         
         <h2 id="java客户端部分"><a href="#java客户端部分" class="headerlink" title="java客户端部分"></a>java客户端部分</h2><h4 id="1-开始，在ShellMain启动shell主循环"><a href="#1-开始，在ShellMain启动shell主循环" class="headerlink" title="1. 开始，在ShellMain启动shell主循环"></a>1. 开始，在<code>ShellMain</code>启动shell主循环</h4><h4 id="2-在shell中输入start命令，启动服务器侦听服务"><a href="#2-在shell中输入start命令，启动服务器侦听服务" class="headerlink" title="2.在shell中输入start命令，启动服务器侦听服务"></a>2.在shell中输入<code>start</code>命令，启动服务器侦听服务</h4><h4 id="3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"><a href="#3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变" class="headerlink" title="3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"></a>3.服务器启动端口号<code>PORT</code>设置的本地代理服务地址，对应的远程连接地址可以在<code>cmd</code>中通过<code>ipconfig</code>查看，开放端口号不变</h4><p> <a target="_blank" rel="noopener" href="https://imgchr.com/i/s8acrj"><img src="https://s3.ax1x.com/2021/01/11/s8acrj.png" alt="s8acrj.png"></a></p>
+<a id="more"></a>
+
 <h4 id="4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"><a href="#4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket" class="headerlink" title="4.每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"></a>4.每次启动一个<code>server</code>或者<code>client</code>会启动一个相应的<code>socket</code>，并将该<code>socket</code>添加到<code>socketList</code>，同样的当输入指令<code>close</code>关闭侦听时，会关闭对应的<code>socket</code></h4><h4 id="5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器"><a href="#5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器" class="headerlink" title="5.启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127.0.0.1连接到已启动的服务器"></a>5.启动后可以使用虚拟终端通过设置好的端口号<code>PORT</code>和本地回送地址<code>127.0.0.1</code>连接到已启动的服务器</h4><p><img src="https://s3.ax1x.com/2021/01/11/s8arRS.png" alt="s8arRS.png"></p>
 <h4 id="6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将"><a href="#6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将" class="headerlink" title="6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将"></a>6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将</h4><p><strong>该设备的信息</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">valvestate 阀门状态</span><br><span class="line">lastupdatetime 最近状态更新时间</span><br><span class="line">id 设备id</span><br><span class="line">state 设备当前状态(在线&#x2F;离线)</span><br><span class="line">ip 设备网络位置</span><br><span class="line">tcpport 设备连接端口号</span><br></pre></td></tr></table></figure>
@@ -433,15 +435,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
               </li>
             
             <div class="clearfix"></div>
