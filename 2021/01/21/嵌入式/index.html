@@ -8,13 +8,15 @@
   <link rel="dns-prefetch" href="https://github.com/SurpassHR/Blog">
   <title>胡高团のHyperSpace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello, this is Hugaotuan&#39;s Blog.">
-<meta property="og:type" content="website">
+  <meta name="description" content="几个要点字和字节一个系统字的位数取决于这个系统的架构，32系统一字为32位，64位系统一字为64位，一字节为8位是不变的，所以32位系统（如ARM）一字为4字节，x64架构windows一字为8字节，16位如Thumb，（ARM指令子集）一字为2字节。 大小端如0x2000-0x2003写入数据0x12345678小端数值的低位-》地址的低位               0x2003">
+<meta property="og:type" content="article">
 <meta property="og:title" content="胡高团のHyperSpace">
-<meta property="og:url" content="https://github.com/SurpassHR/Blog/index.html">
+<meta property="og:url" content="https://github.com/SurpassHR/Blog/2021/01/21/%E5%B5%8C%E5%85%A5%E5%BC%8F/index.html">
 <meta property="og:site_name" content="胡高团のHyperSpace">
-<meta property="og:description" content="Hello, this is Hugaotuan&#39;s Blog.">
+<meta property="og:description" content="几个要点字和字节一个系统字的位数取决于这个系统的架构，32系统一字为32位，64位系统一字为64位，一字节为8位是不变的，所以32位系统（如ARM）一字为4字节，x64架构windows一字为8字节，16位如Thumb，（ARM指令子集）一字为2字节。 大小端如0x2000-0x2003写入数据0x12345678小端数值的低位-》地址的低位               0x2003">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-01-21T07:09:55.777Z">
+<meta property="article:modified_time" content="2021-01-03T15:32:35.164Z">
 <meta property="article:author" content="Hugaotuan">
 <meta name="twitter:card" content="summary">
   
@@ -152,127 +154,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-注册表改动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2020-08-24  <code>win10 2004 19041.450</code></p>
-<ul>
-<li>在<code>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\</code>添加了项<code>Google\Chrome</code>和<code>Chrome</code>下的<code>DWORD</code>值<code>EnableBookmarkBar=0</code>以隐藏Chrome书签栏</li>
-</ul>
-<p>2020-08-26  <code>win10 2004 19041.450</code></p>
-<ul>
-<li>使用注册表项注入方法将键<code>HKEY_CLASSES_ROOT\*\Shell\用 NotePad2打开</code>、<code>HKEY_CLASSES_ROOT\*\Shell\用 NotePad2打开</code>，值<code>&quot;G:\\Program Files\\notepad2\\Notepad2.exe \&quot;%L\&quot;&quot;</code>添加到注册表项，将Notepad2添加到右键菜单，开头使用<code>Windows Registry Editor Version 5.00</code>标记，编码格式<code>ANSI</code><ul>
-<li>2020-08-31</li>
-<li>补注：删除该项</li>
-</ul>
-</li>
-</ul>
-<p>2020-08-31 <code>win10 2004 19041.450</code></p>
-<ul>
-<li>在<code>\HKEY_CLASSES_ROOT\Directory\Background\shell\</code>添加了项<code>Sublime Text\command</code>以使用Sublime Text打开文件夹</li>
-</ul>
-<p>2020-12-05 <code>win10 20H2 19042.662</code></p>
-<ul>
-<li>在<code>\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\</code>添加了项<code>Sublime Text\command</code>以使用Sublime Text打开文件</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%94%B9%E5%8A%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用过程问题及解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2020-09-01 <code>win10 2004 19041.450</code></p>
-<ul>
-<li>在使用<code>mklink \d &quot;源路径&quot; &quot;目标路径&quot;</code>转移Chrome用户文件时，卸载后保留了源路径文件夹，处于一个无法读写的状态，导致新的Chrome安装后无法启动，具体表现为任务管理器中进程打开后立即关闭，在尝试修改注册表项无果后，删除了<code>mklink</code>源路径文件夹，这时Chrome成功创建用户文件，Chrome可以启动。</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-嵌入式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-嵌入式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -367,6 +249,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -374,16 +277,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E5%B5%8C%E5%85%A5%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://github.com/SurpassHR/Blog/2021/01/21/%E5%B5%8C%E5%85%A5%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/Blog/2021/01/21/%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Blog/2021/01/21/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84--%E5%92%8C-/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -403,386 +374,14 @@
 
 
 
+  
+  
+  
 
   
-    <article id="post-命令行的--和-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="命令行的-和"><a href="#命令行的-和" class="headerlink" title="命令行的--和-"></a>命令行的<code>--</code>和<code>-</code></h1><h2 id="按照有-和没有-划分"><a href="#按照有-和没有-划分" class="headerlink" title="按照有-和没有-划分"></a>按照有<code>-</code>和没有<code>-</code>划分</h2><p>参数前有<code>-</code>的是 System V风格。</p>
-<p>参数前没有<code>-</code>的是 BSD风格。</p>
-<h2 id="System-V中按照-和-划分"><a href="#System-V中按照-和-划分" class="headerlink" title="System V中按照--和-划分"></a>System V中按照<code>--</code>和<code>-</code>划分</h2><p><code>-</code>的后面跟的是字符<code>ls -a</code></p>
-<p><code>--</code>后面跟的是字符串或者说单词<code>cp --help</code></p>
-<h2 id="另：cd和cd-d"><a href="#另：cd和cd-d" class="headerlink" title="另：cd和cd /d"></a>另：<code>cd</code>和<code>cd /d</code></h2><p><code>cd</code>不会修改当前盘符</p>
-<p><code>cd /d</code>会修改当前盘符</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84--%E5%92%8C-/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
-    <article id="post-点点的稿子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="brief-instruction"><a href="#brief-instruction" class="headerlink" title="brief instruction"></a>brief instruction</h1><h4 id="1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查"><a href="#1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查" class="headerlink" title="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查"></a>1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查</h4><h4 id="2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"><a href="#2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改" class="headerlink" title="2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"></a>2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改</h4><h4 id="3-通过Device和Deviceht来新建设备实体和温湿度状态"><a href="#3-通过Device和Deviceht来新建设备实体和温湿度状态" class="headerlink" title="3.通过Device和Deviceht来新建设备实体和温湿度状态"></a>3.通过Device和Deviceht来新建设备实体和温湿度状态</h4><h4 id="4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括"><a href="#4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括" class="headerlink" title="4.这些方法通过Shell框架读取cmd.properties中的命令行属性配置来实现后端命令的调用，包括"></a>4.这些方法通过Shell框架读取<code>cmd.properties</code>中的命令行属性配置来实现后端命令的调用，包括</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add  添加</span><br><span class="line"><span class="keyword">delete</span>  删除</span><br><span class="line">help  命令帮助</span><br><span class="line"><span class="built_in">list</span>  列出设备</span><br><span class="line">val  开关阀门</span><br></pre></td></tr></table></figure>
-<h4 id="5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"><a href="#5-首先在Main-方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht-device表的主键id和ht-deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定" class="headerlink" title="5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有ht_device表的主键id和ht_deviceht表的外键deviceid关联，由此实现了数据库设备信息与温湿度信息的绑定"></a>5.首先在Main()方法中新建设备实体和设备温湿度实体，因为在Mysql数据库中，设置有<code>ht_device</code>表的主键<code>id</code>和<code>ht_deviceht</code>表的外键<code>deviceid</code>关联，由此实现了数据库设备信息与温湿度信息的绑定</h4><h4 id="6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"><a href="#6-然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务" class="headerlink" title="6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务"></a>6.然后新建一个线程用来监听终端，开放端口9999，当远程终端的ip地址与端口号都符合时，可以连接到该监听服务</h4><h4 id="7-开启Shell命令行主循环完成实验"><a href="#7-开启Shell命令行主循环完成实验" class="headerlink" title="7.开启Shell命令行主循环完成实验"></a>7.开启Shell命令行主循环完成实验</h4><h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.输入help   &#x2F;&#x2F; 此时会显示所有能够操作的命令</span><br><span class="line">2.输入add 001  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，可以打开navicat看一下</span><br><span class="line">3.输入add 002  &#x2F;&#x2F; 此时会向数据库htsql中的tb_device表添加一项，id为1，打开查看记得刷新，或者输入list命令查看</span><br><span class="line">4.输入del 001  &#x2F;&#x2F; 此时会删除id为1的设备</span><br><span class="line">5.打开虚拟终端手动发送几个  &#x2F;&#x2F; 打开tb_deviceht表查看</span><br><span class="line">6.输入val 001 1  &#x2F;&#x2F; 此时打开虚拟终端，可以看到阀门变绿，被打开</span><br><span class="line">7.输入val 001 0  &#x2F;&#x2F; 此时打开虚拟终端，阀门变红，被关闭</span><br><span class="line">8.完成</span><br></pre></td></tr></table></figure>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E7%82%B9%E7%82%B9%E7%9A%84%E7%A8%BF%E5%AD%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大作业" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="大作业"><a href="#大作业" class="headerlink" title="大作业"></a>大作业</h1><h2 id="java客户端部分"><a href="#java客户端部分" class="headerlink" title="java客户端部分"></a>java客户端部分</h2><h4 id="1-开始，在ShellMain启动shell主循环"><a href="#1-开始，在ShellMain启动shell主循环" class="headerlink" title="1. 开始，在ShellMain启动shell主循环"></a>1. 开始，在<code>ShellMain</code>启动shell主循环</h4><h4 id="2-在shell中输入start命令，启动服务器侦听服务"><a href="#2-在shell中输入start命令，启动服务器侦听服务" class="headerlink" title="2.在shell中输入start命令，启动服务器侦听服务"></a>2.在shell中输入<code>start</code>命令，启动服务器侦听服务</h4><h4 id="3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"><a href="#3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变" class="headerlink" title="3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"></a>3.服务器启动端口号<code>PORT</code>设置的本地代理服务地址，对应的远程连接地址可以在<code>cmd</code>中通过<code>ipconfig</code>查看，开放端口号不变</h4><p> <a target="_blank" rel="noopener" href="https://imgchr.com/i/s8acrj"><img src="https://s3.ax1x.com/2021/01/11/s8acrj.png" alt="s8acrj.png"></a></p>
-<h4 id="4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"><a href="#4-每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket" class="headerlink" title="4.每次启动一个server或者client会启动一个相应的socket，并将该socket添加到socketList，同样的当输入指令close关闭侦听时，会关闭对应的socket"></a>4.每次启动一个<code>server</code>或者<code>client</code>会启动一个相应的<code>socket</code>，并将该<code>socket</code>添加到<code>socketList</code>，同样的当输入指令<code>close</code>关闭侦听时，会关闭对应的<code>socket</code></h4><h4 id="5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器"><a href="#5-启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127-0-0-1连接到已启动的服务器" class="headerlink" title="5.启动后可以使用虚拟终端通过设置好的端口号PORT和本地回送地址127.0.0.1连接到已启动的服务器"></a>5.启动后可以使用虚拟终端通过设置好的端口号<code>PORT</code>和本地回送地址<code>127.0.0.1</code>连接到已启动的服务器</h4><p><img src="https://s3.ax1x.com/2021/01/11/s8arRS.png" alt="s8arRS.png"></p>
-<h4 id="6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将"><a href="#6-一个终端完成连接并使服务器接收到第一条消息后，服务器会将" class="headerlink" title="6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将"></a>6.一个终端完成连接并使服务器接收到第一条消息后，服务器会将</h4><p><strong>该设备的信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">valvestate 阀门状态</span><br><span class="line">lastupdatetime 最近状态更新时间</span><br><span class="line">id 设备id</span><br><span class="line">state 设备当前状态(在线&#x2F;离线)</span><br><span class="line">ip 设备网络位置</span><br><span class="line">tcpport 设备连接端口号</span><br></pre></td></tr></table></figure>
-<p><strong>和该设备温湿度信息</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">H 湿度</span><br><span class="line">T 温度</span><br><span class="line">deviceid 温湿度绑定的设备号</span><br><span class="line">updatetime 该条信息更新时间</span><br></pre></td></tr></table></figure>
-<h4 id="发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化"><a href="#发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化" class="headerlink" title="发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化"></a>发送到数据库，如果移动终端的App在线，可以随时收到该设备的温湿度变化</h4><h2 id="移动终端-安卓-App部分"><a href="#移动终端-安卓-App部分" class="headerlink" title="移动终端(安卓)App部分"></a>移动终端(安卓)App部分</h2><h4 id="1-通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接"><a href="#1-通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接" class="headerlink" title="1.通过tcp协议，远程连接对应的服务器端口，如果是虚拟机则类似于Wifi局域网连接"></a>1.通过<code>tcp</code>协议，远程连接对应的服务器端口，如果是虚拟机则类似于<code>Wifi</code>局域网连接</h4><h4 id="2-在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello-World-，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面"><a href="#2-在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello-World-，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面" class="headerlink" title="2.在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个toast提示Hello World!，主界面中只设置了一个button控件对应在MainActivity中的动作–得到editText控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过Intent完成启动Activity，启动Service，发送Broadcast的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面"></a>2.在layout布局文件夹设置了连接主界面和温湿度和阀门状态监控副界面，当打开应用来到主界面时，会弹出一个<code>toast</code>提示<code>Hello World!</code>，主界面中只设置了一个<code>button</code>控件对应在<code>MainActivity</code>中的动作–得到<code>editText</code>控件中的输入，并将该输入转换为整型，作为所要查询温湿度和阀门信息的设备id号，通过<code>Intent</code>完成启动<code>Activity</code>，启动<code>Service</code>，发送<code>Broadcast</code>的动作，并跳转到监控界面，若一直无法连接成功则退回到主界面</h4><h4 id="4-设置数据库远程连接权限"><a href="#4-设置数据库远程连接权限" class="headerlink" title="4.设置数据库远程连接权限"></a>4.设置数据库远程连接权限</h4><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sGkyUx"><img src="https://s3.ax1x.com/2021/01/11/sGkyUx.png" alt="sGkyUx.png"></a></p>
-<p><code>mysql&gt; update user set user host = &#39;%s&#39; where user = &#39;root&#39;;</code></p>
-<p><code>mysql&gt; flush privileges;</code></p>
-<h4 id="3-阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型-appcontrolvalve-，did：设备id，valve：需要将阀门变换的状态-0-1-，该命令-0-1-的选择由一个switch控件决定"><a href="#3-阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型-appcontrolvalve-，did：设备id，valve：需要将阀门变换的状态-0-1-，该命令-0-1-的选择由一个switch控件决定" class="headerlink" title="3.阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，cmd：执行的执行的命令类型(appcontrolvalve)，did：设备id，valve：需要将阀门变换的状态(0/1)，该命令(0/1)的选择由一个switch控件决定"></a>3.阀门控制部分通过向服务器端发送封装为json格式的请求完成，该请求包含三部分，<code>cmd</code>：执行的执行的命令类型(appcontrolvalve)，<code>did</code>：设备id，<code>valve</code>：需要将阀门变换的状态(0/1)，该命令(0/1)的选择由一个<code>switch</code>控件决定</h4><h4 id="4-客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log-d-quot-hello-quot-quot-query-0-quot-分割，说明客户端与服务器连接正常"><a href="#4-客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log-d-quot-hello-quot-quot-query-0-quot-分割，说明客户端与服务器连接正常" class="headerlink" title="4.客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则Toast提示”连接失败”，在run后台中可以看到持续的请求发送，之间使用Log.d(&quot;hello&quot;, &quot;query:0==================&quot;)分割，说明客户端与服务器连接正常"></a>4.客户端持续向服务器端发送Query请求，如果请求成功则更新温湿度数值，否则<code>Toast</code>提示”连接失败”，在<code>run</code>后台中可以看到持续的请求发送，之间使用<code>Log.d(&quot;hello&quot;, &quot;query:0==================&quot;)</code>分割，说明客户端与服务器连接正常</h4>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/%E5%A4%A7%E4%BD%9C%E4%B8%9A/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Youtube-SignatureCipher-Decryptor-项目过程记录与总结"><a href="#Youtube-SignatureCipher-Decryptor-项目过程记录与总结" class="headerlink" title="Youtube SignatureCipher Decryptor 项目过程记录与总结"></a>Youtube SignatureCipher Decryptor 项目过程记录与总结</h1><h2 id="1-写在前面"><a href="#1-写在前面" class="headerlink" title="-1-写在前面"></a>-1-写在前面</h2><p>Youtube上的视频抛开内容质量不谈画质确实可以说是顶级的，但下载却是存在一些不便，虽说通过下载利器<a target="_blank" rel="noopener" href="https://www.internetdownloadmanager.com/">IDM</a>可以实现流媒体的嗅探下载，但IDM总是要从IE获取或手动设置代理服务器，其过程类似于抓包，实时监控着网络流量。我就琢磨有没有一种可以直接获取ytb直连的方法，所以我打算写一个小程序验证我的想法。</p>
-<p>这篇文章大概会分为三个部分讲述这个小程序建立的过程，想到哪写到哪，比诺兰的电影时间线还乱</p>
-<h2 id="0-Re0-梦开始的地方"><a href="#0-Re0-梦开始的地方" class="headerlink" title="0-Re0:梦开始的地方"></a>0-Re0:梦开始的地方</h2><h3 id="0-0-元素审查"><a href="#0-0-元素审查" class="headerlink" title="0.0-元素审查"></a>0.0-元素审查</h3><p>首先打开一个ytb视频播放页面，检查一下页面内容，因为是动态加载的页面我们不奢求直接在页面中找到</p>
-<p>真实链接，果不其然</p>
-<p><img src="C:\Users\10941\Desktop\md图片\1.png" alt="元素审查"></p>
-<p>这<code>blob:https</code>看起来很像一种协议，经过一番百度发现：**<code>blob:https</code>并不是一种协议，而是html5中blob对象在赋给video标签后生成的一串标记，blob对象对象包含的数据，浏览器内部会解析。**果然，在网页原文</p>
-<p><img src="C:\Users\10941\Desktop\md图片\2.png" alt="网页原文件"></p>
-<p>没有再能找到<code>blob</code>，说明<code>blob</code>通过调用某个js的某种方法将其变成了另一个链接，所以接下来有两种选择，一是冲着这个js方法使劲，二是凭感觉来找，根据我的经验在一个动态页面找一个隐藏在js中的视频链接不会太难，毕竟也就那几十条，而且一些通用的关键词<code>playinfo</code>、<code>player-api</code>等等都可以快速地检索到目标所在的标签，而与此同时使用base加密的js格式化后大概有5、6万行，但其实还有三，那就是直接抓包，但那样不就等于开挂了吗？我在写这篇总结时已经把成品做出来了，所以这一次我打算正面硬刚加密的js</p>
-<h4 id="0-0-0-调用了哪个js？"><a href="#0-0-0-调用了哪个js？" class="headerlink" title="0.0.0-调用了哪个js？"></a>0.0.0-调用了哪个js？</h4><p>我们猜想，当js处理完一个链接后会1.通过<code>getElementsByxxx()</code>的方法找到标签将原链接放回去,2.通过<code>setAttribute()</code>设置<code>src</code>属性内容等方法还原标签视频链接，因为能作为标签的选择器的只有<code>class</code>属性了，所以我兴致冲冲地在<code>base.js</code>中找到了与<code>class</code>中属性值相关的方法以及相关的调用，但万万没想到</p>
-<p><img src="C:\Users\10941\Desktop\md图片\4.png"></p>
-<p><img src="C:\Users\10941\Desktop\md图片\5.png"></p>
-<p><strong>1.他阻止了视频流这个事件的传播</strong></p>
-<p><img src="C:\Users\10941\Desktop\md图片\3.png"></p>
-<p><strong>2.他把<code>src</code>属性给删了</strong></p>
-<p>不过好消息是我们可以发现出现频率很高的一个词<code>ytp</code></p>
-<p>再说他的链接，他应该还有一种选择就是把打包好的json信息，我们想要的视频链接也在json中，作为视频内容传给h5播放器，但既然是内容的传递那么这个方法八成不在加密算法文件<code>base.js</code>中，经过元素审查关键词<code>ytp</code>、<code>player</code>很容易找到了<code>ytplayer</code>这个js变量，<code>youtube player</code>起名字相当随便（第一次找链接就是这样找到的），无论是审查元素还是网络都能很好地验证</p>
-<p><img src="C:\Users\10941\Desktop\md图片\6.png"></p>
-<p><img src="C:\Users\10941\Desktop\md图片\7.png"></p>
-<p>通过<code>ytplayer.config</code>这个属性储存了视频信息，其中包含了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">ytplayer.config &#x3D; &#123;</span><br><span class="line">    &quot;args&quot;: &#123;</span><br><span class="line">        &quot;innertube_api_version&quot;: &quot;v1&quot;,</span><br><span class="line">        &#x2F;&#x2F; ---------------重点保护----------------</span><br><span class="line">        &quot;player_response&quot;: &quot;...&quot;, </span><br><span class="line">        &#x2F;&#x2F; --------------------------------------</span><br><span class="line">        &quot;cbr&quot;: &quot;Chrome&quot;,</span><br><span class="line">        &quot;c&quot;: &quot;WEB&quot;,</span><br><span class="line">        &quot;csi_page_type&quot;: &quot;watch&quot;,</span><br><span class="line">        &quot;external_fullscreen&quot;: true,</span><br><span class="line">        &quot;use_fast_sizing_on_watch_default&quot;: false,</span><br><span class="line">        &quot;ps&quot;: &quot;desktop-polymer&quot;,</span><br><span class="line">        &quot;enablecsi&quot;: &quot;1&quot;,</span><br><span class="line">        &quot;host_language&quot;: &quot;en&quot;,</span><br><span class="line">        &quot;cr&quot;: &quot;GB&quot;,</span><br><span class="line">        &quot;cos&quot;: &quot;Windows&quot;,</span><br><span class="line">        &quot;enablejsapi&quot;: &quot;1&quot;,</span><br><span class="line">        &quot;watermark&quot;: &quot;,https:&#x2F;&#x2F;s.ytimg.com&#x2F;yts&#x2F;img&#x2F;watermark&#x2F;youtube_watermark-vflHX6b6E.png,https:&#x2F;&#x2F;s.ytimg.com&#x2F;yts&#x2F;img&#x2F;watermark&#x2F;youtube_hd_watermark-vflAzLcD6.png&quot;,</span><br><span class="line">        &quot;loaderUrl&quot;: &quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;pNmhJx8yPLk&quot;,</span><br><span class="line">        &quot;cosver&quot;: &quot;10.0&quot;,</span><br><span class="line">        &quot;cbrver&quot;: &quot;85.0.4183.76&quot;,</span><br><span class="line">        &quot;cver&quot;: &quot;2.20200829.02.01&quot;,</span><br><span class="line">        &quot;use_miniplayer_ui&quot;: &quot;1&quot;,</span><br><span class="line">        &quot;vss_host&quot;: &quot;s.youtube.com&quot;,</span><br><span class="line">        &quot;gapi_hint_params&quot;: &quot;m;&#x2F;_&#x2F;scs&#x2F;abc-static&#x2F;_&#x2F;js&#x2F;k&#x3D;gapi.gapi.en.lqqPe8Y-aUs.O&#x2F;d&#x3D;1&#x2F;ct&#x3D;zgms&#x2F;rs&#x3D;AHpOoo_7ZBgzLryveB2qtYoSqeBQ4P-TYA&#x2F;m&#x3D;__features__&quot;,</span><br><span class="line">        &quot;transparent_background&quot;: &quot;1&quot;,</span><br><span class="line">        &quot;innertube_api_key&quot;: &quot;AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8&quot;,</span><br><span class="line">        &quot;show_miniplayer_button&quot;: &quot;1&quot;,</span><br><span class="line">        &quot;hl&quot;: &quot;en_US&quot;,</span><br><span class="line">        &quot;innertube_context_client_version&quot;: &quot;2.20200829.02.01&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;assets&quot;: &#123;</span><br><span class="line">        &quot;css&quot;: &quot;&#x2F;s&#x2F;player&#x2F;86f77974&#x2F;www-player-webp.css&quot;,</span><br><span class="line">        &quot;player_canary_state&quot;: &quot;none&quot;,</span><br><span class="line">        &quot;js&quot;: &quot;&#x2F;s&#x2F;player&#x2F;86f77974&#x2F;player_ias.vflset&#x2F;en_US&#x2F;base.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;attrs&quot;: &#123;&quot;id&quot;: &quot;movie_player&quot;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>其中<code>&quot;player_response&quot;</code>包含各种质量的视频的来源以及信息，如果按照80字符一换行，里面大概有1000多行。其中视频与音频是分离的，从48k到320k，从144p到8k都有明确的提示信息，之后的流程就是多层套娃，<code>player_response</code>外面套<code>ytplayer.config</code>外面套<code>data</code>外面套<code>pageData</code>外面套<code>window.getPageData</code>外面套<code>fillerData</code>外面套<code>setFiller</code>，每套一层就额外增添一些判断条件或者信息，最后打包成为h5播放器可以识别的信息在播放器完成播放，套娃如下</p>
-<p><img src="C:\Users\10941\Desktop\md图片\10.png"></p>
-<p>然后再说说开挂的方法——抓包</p>
-<h3 id="0-1-fiddler抓包"><a href="#0-1-fiddler抓包" class="headerlink" title="0.1-fiddler抓包"></a>0.1-fiddler抓包</h3><p>我没怎么研究抓包，因为只是简单的分析一下就可以解决大部分的流媒体传输问题（b站是个例外，原视频链接没有藏掖，倒是在音视频请求、分段传输上下了很多套）</p>
-<p>Fiddler首先配置要代理的浏览器，添加Fiddler的证书之后Fiddler就可以对流量进行分析和抓取</p>
-<p>打开配置好的Fiddler后再打开ytb的视频页面，捕获页面中就会刷新出请求过的链接，无论是否响应</p>
-<p><img src="C:\Users\10941\Desktop\md图片\8.png"></p>
-<p>如图，Fiddler已经在图标方面对音视频链接进行了识别分类，突然搞得我前面的工作没有了意义，十分枯燥，同时在这里也可以验证我前面的猜测</p>
-<p><img src="C:\Users\10941\Desktop\md图片\9.png"></p>
-<p>不再赘述</p>
-<p>总之寻找真实视频链接并没有描述中的难，html这种东西，总是感觉比逻辑要来的快一些，<strong>但</strong>上面还有没填好的坑，为接下来的程序编写带来了困难</p>
-<h3 id="0-2-小结"><a href="#0-2-小结" class="headerlink" title="0.2-小结"></a>0.2-小结</h3><p>元素审查本就不是走流程的一步，看过的页面做够多，总能找出些规律，总之多摸索</p>
-<h2 id="1-万事俱备（自以为）"><a href="#1-万事俱备（自以为）" class="headerlink" title="1-万事俱备（自以为）"></a>1-万事俱备（自以为）</h2><h3 id="1-0-爬取页面"><a href="#1-0-爬取页面" class="headerlink" title="1.0-爬取页面"></a>1.0-爬取页面</h3><p>&ensp;&ensp;&ensp;&ensp;目标已经找出来了，接下来就是爬取了，我的目标是不适用第三方库解析网页来完成网页的解析和链接与信息的提取，首先把原始页面抓下来，把异常捕捉加上免得报红错影响心情</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">   </span><br><span class="line">headers = &#123;</span><br><span class="line">	<span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.76 Safari/537.36&quot;</span>,</span><br><span class="line">	<span class="string">&quot;accept-language&quot;</span>: <span class="string">&quot;en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,ar;q=0.6&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">res = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">reqtime = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime())</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    req = urllib.request.urlopen(res, timeout=<span class="number">10</span>)</span><br><span class="line">    html = req.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    print(<span class="string">&#x27;\n请求成功，请求时间是:&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(reqtime))</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(<span class="string">&#x27;\n请求失败，请求时间是:&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(reqtime))</span><br><span class="line">    print(<span class="string">&#x27;失败原因:&#123;&#125;请检查网络\n&#x27;</span>.<span class="built_in">format</span>(e))</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<p>&ensp;&ensp;&ensp;&ensp;测试通过后使用函数封装，添加文件写入，把当前步骤得到的结果做一个备份，之后的测试就通过读取文件内容来进行，既节省了等待响应的时间，又降低了封ip的风险，想必每个视频页面不会有太大的出入（事后证明出入还是有一点的）</p>
-<h3 id="1-1-页面信息解析"><a href="#1-1-页面信息解析" class="headerlink" title="1.1-页面信息解析"></a>1.1-页面信息解析</h3><h4 id="1-1-0-坑1-转义字符"><a href="#1-1-0-坑1-转义字符" class="headerlink" title="1.1.0-坑1 转义字符"></a>1.1.0-坑1 转义字符</h4><p>​    爬到的页面通过<code>utf-8</code>decode之后，<code>&lt;body&gt;</code>部分正常，但<code>&lt;script&gt;</code>部分出现了unicode转义字符，不是出现了，本来就有，给正则式的构建造成了很大的困扰，下面是<code>&lt;script&gt;</code>部分出现的全部</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Unicode转义字符集</span></span><br><span class="line">replace_dict = &#123;</span><br><span class="line">    <span class="string">r&#x27;\\\&quot;&#x27;</span>: <span class="string">r&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\\u0026&#x27;</span>: <span class="string">r&#x27;&amp;&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\u0026&#x27;</span>: <span class="string">r&#x27;&amp;&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\\&quot;&#x27;</span>: <span class="string">r&quot;&#x27;&quot;</span>,</span><br><span class="line">    <span class="string">r&#x27;\&quot;&#x27;</span>: <span class="string">r&quot;&#x27;&quot;</span>,</span><br><span class="line">    <span class="string">r&#x27;\\&#x27;</span>: <span class="string">r&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\/&#x27;</span>: <span class="string">r&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\u003c&#x27;</span>: <span class="string">r&#x27;&lt;&#x27;</span>,</span><br><span class="line">    <span class="string">r&#x27;\u003e&#x27;</span>: <span class="string">r&#x27;&gt;&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因为ytb页面本身是有中文内容的，所以<code>read()</code>的时候使用<code>utf-8</code>可以避免一些显示上的问题，而像这样以文本形式储存在<code>&lt;script&gt;</code>中，并且多种形式像<code>\\u0026</code>和<code>\u0026</code>并存，我们本可以采取更加优雅一些的方法像<code>json.loads()</code>转换unicode转义字符的同时，将json文件以字典的形式保存于变量，但是它要求严格的json格式文件，最起码不能在IDE中报错，我本打算这样做，但是这样一来截取json格式片段的正则式则会变得臃肿，容错率变低，而且<code>\&quot;</code>转义、<code>\\&quot;</code> 反转义、<code>\\\&quot;</code>反反转义并存<code>json.loads()</code>可能并不能做到完美，好在我们需要的片段是一段很类似媒体属性的json格式信息，不会出现汉字，那么工作量就少了很多，最终需要改动的地方如上所示，使用for循环完成对全文的替换，需要注意的的是字典的顺序很重要</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> replace_dict:</span><br><span class="line">	html = html.replace(key, replace_dict[key])</span><br></pre></td></tr></table></figure>
-<p>很暴力，但是很保险</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">urlFormat &#x3D; re.compile(r&#39;^https:&#x2F;&#x2F;www.youtube.com&#x2F;watch\?v&#x3D;.*|www.youtube.com&#x2F;watch\?v&#x3D;.*|youtube.com&#x2F;watch\?v&#x3D;.*&#39;)</span><br><span class="line">mediaTitle &#x3D; re.compile(r&#39;&lt;meta name&#x3D;&quot;title&quot; content&#x3D;&quot;(.*?)&quot;&gt;&#39;, re.S)</span><br><span class="line">ytplayerCfg &#x3D; re.compile(r&#39;&lt;script &gt;var ytplayer.*?&lt;&#x2F;script&gt;&#39;, re.S)</span><br><span class="line">streamingData &#x3D; re.compile(r&#39;&quot;streamingData&quot;:&#123;&#39;, re.S)</span><br><span class="line">streamingdata1 &#x3D; re.compile(&quot;&#39;streamingData&#39;:&#123;(.*)&#125;,&#39;playbackTracking&#39;&quot;, re.S)</span><br><span class="line">streamingdata0 &#x3D; re.compile(&quot;&#39;streamingData&#39;:&#123;(.*)&#125;,&#39;playerAds&#39;&quot;, re.S)</span><br></pre></td></tr></table></figure>
-<p>使用正则式完成从url检测到流媒体信息的提取，其中的一个坑就在键<code>&quot;streamingData&quot;</code>，也就是上文所说的那一点出入，有的视频信息后面跟的是<code>&quot;playbackTracking&quot;</code>，有的是<code>&quot;playerAds&quot;</code>，都是小问题</p>
-<p>从原html页面到格式化的json信息经历了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 请求原页面，timeout=30(s)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">askURL</span>(<span class="params">url</span>):</span></span><br><span class="line">    <span class="keyword">global</span> html</span><br><span class="line"></span><br><span class="line">    res = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">    reqtime = time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime())</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        req = urllib.request.urlopen(res, timeout=<span class="number">10</span>)</span><br><span class="line">        html = req.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        print(<span class="string">&#x27;\n请求成功，请求时间是:&#123;&#125;\n&#x27;</span>.<span class="built_in">format</span>(reqtime))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">&#x27;\n请求失败，请求时间是:&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(reqtime))</span><br><span class="line">        print(<span class="string">&#x27;失败原因:&#123;&#125;请检查网络\n&#x27;</span>.<span class="built_in">format</span>(e))</span><br><span class="line">        main()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> logOn:</span><br><span class="line">        filename = <span class="string">&#x27;oringin_video_page.html&#x27;</span></span><br><span class="line">        write(html, filename)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换掉unicode转义字符的页面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prettify</span>(<span class="params">html</span>):</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> replace_dict:</span><br><span class="line">        html = html.replace(item, replace_dict[item])</span><br><span class="line"></span><br><span class="line">    title = re.findall(mediaTitle, html)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> logOn:</span><br><span class="line">        filename = <span class="string">&#x27;pre_video_page.html&#x27;</span></span><br><span class="line">        write(html, filename)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> html, title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 截取含有ytplayer播放器信息的js脚本</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process2Js</span>(<span class="params">pre_html</span>):</span></span><br><span class="line"></span><br><span class="line">    js_file = re.findall(ytplayerCfg, pre_html)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> logOn:</span><br><span class="line">        filename = <span class="string">&#x27;video_info_ytplayer_js.html&#x27;</span></span><br><span class="line">        write(js_file, filename)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> js_file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 截取ytplayer中含有的流媒体信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process2Json</span>(<span class="params">js_file</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> re.findall(streamingdata0, js_file):</span><br><span class="line">        json_file = <span class="string">&#x27;&#123;&#x27;</span> + <span class="string">&#x27;&quot;streamingData&quot;: &#123;&#x27;</span> + re.findall(streamingdata1, js_file)[<span class="number">0</span>] + <span class="string">&#x27;&#125;&#x27;</span> + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        json_file = <span class="string">&#x27;&#123;&#x27;</span> + <span class="string">&#x27;&quot;streamingData&quot;: &#123;&#x27;</span> + re.findall(streamingdata0, js_file)[<span class="number">0</span>] + <span class="string">&#x27;&#125;&#x27;</span> + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">    json_file = json_file.replace(<span class="string">&quot;&#x27;&quot;</span>, <span class="string">&#x27;&quot;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> logOn:</span><br><span class="line">        filename = <span class="string">&#x27;video_page_json.json&#x27;</span></span><br><span class="line">        write(json_file, filename)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> json_file</span><br></pre></td></tr></table></figure>
-<p>这样几步，为了方便记录我把一步拆成了几步，又把每一步封装，因为在这篇比较调理的代码之前的<code>main.py.old</code>写完我自己都看不懂，所以决定吸取教训</p>
-<h4 id="1-1-1-坑2-copy-amp-deepcopy-拷贝与深拷贝"><a href="#1-1-1-坑2-copy-amp-deepcopy-拷贝与深拷贝" class="headerlink" title="1.1.1-坑2 copy&amp;deepcopy(拷贝与深拷贝)"></a>1.1.1-坑2 copy&amp;deepcopy(拷贝与深拷贝)</h4><p>解析过程中用到了一次列表对列表的赋值，<code>list(b) = list(a)</code>将<code>list(a)</code>放入函数操作，打印<code>list(b)</code>发现b也变了，在java的时候就被这拷贝卡了一次，这次没长脑子，又被卡住了，写个循环赋值，或者直接调用<code>copy</code>库的<code>deepcopy</code></p>
-<h4 id="1-1-2-坑3-Signature-Cipher-签名加密-史前巨坑"><a href="#1-1-2-坑3-Signature-Cipher-签名加密-史前巨坑" class="headerlink" title="1.1.2-坑3 Signature Cipher(签名加密)史前巨坑"></a>1.1.2-坑3 Signature Cipher(签名加密)史前巨坑</h4><p>本以为一切都结束了，因为测试了几个视频都可以只用浏览器直连下载，直到我测试了一个正义联盟的片段</p>
-<p><img src="C:\Users\10941\Desktop\md图片\11.png"></p>
-<p>正常视频左，正义联盟右</p>
-<p>不愧是正义联盟，正道的光，奥里给！</p>
-<p><code>SignaturCipher</code>中也是含有url的</p>
-<p><img src="C:\Users\10941\Desktop\md图片\12.png"></p>
-<p>但经过对比可以发现，多了开头的<code>s=...</code>和<code>&amp;sp=sig</code>这两段，而且链接中没有我们想要的<code>&amp;</code>、<code>?</code>等分隔符，浏览器可以将**百分号加密(Percentage-encoding也叫URL编码Url Encoding)**正常解析，但我们不行，而且googlevideo对于未解析的sig链接不予响应</p>
-<p><img src="C:\Users\10941\Desktop\md图片\14.png"></p>
-<p>这很影响对链接内容的分析，所以再次字典replace，转成我们方便分析的形式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">![<span class="number">14</span>](C:\Users\<span class="number">10941</span>\Desktop\md图片\<span class="number">14.</span>png)<span class="comment"># 百分号加密字符集</span></span><br><span class="line">decode_dict = &#123;</span><br><span class="line">    <span class="string">&#x27; &#x27;</span>: <span class="string">&#x27;%20&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&quot;&#x27;</span>: <span class="string">&#x27;%22&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;#&#x27;</span>: <span class="string">&#x27;%23&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;%&#x27;</span>: <span class="string">&#x27;%25&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&amp;&#x27;</span>: <span class="string">&#x27;%26&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;(&#x27;</span>: <span class="string">&#x27;%28&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;)&#x27;</span>: <span class="string">&#x27;%29&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;+&#x27;</span>: <span class="string">&#x27;%2B&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;,&#x27;</span>: <span class="string">&#x27;%2C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;/&#x27;</span>: <span class="string">&#x27;%2F&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;:&#x27;</span>: <span class="string">&#x27;%3A&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;;&#x27;</span>: <span class="string">&#x27;%3B&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;&#x27;</span>: <span class="string">&#x27;%3C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;=&#x27;</span>: <span class="string">&#x27;%3D&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&gt;&#x27;</span>: <span class="string">&#x27;%3E&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;?&#x27;</span>: <span class="string">&#x27;%3F&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>: <span class="string">&#x27;%40&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;\\&#x27;</span>: <span class="string">&#x27;%5C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;|&#x27;</span>: <span class="string">&#x27;%7C&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> decode_dict:</span><br><span class="line">    url = url.replace(decode_dict[key], key)</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\10941\Desktop\md图片\13.png"></p>
-<p>大概就是这样几个地方的不同，此时访问正义联盟的url</p>
-<p><img src="C:\Users\10941\Desktop\md图片\15.png"></p>
-<p>被阻止了，无权访问，但最起码服务器响应了，再根据前面已经写了这段链接是<code>&quot;SignatureCipher&quot;</code>的值，明显我们少的是那段sig也就是签名</p>
-<p>我们新建一个sig并加入s=后面的签名信息，尝试访问一下，还是403</p>
-<p>说明它被某种方法进行了加密，我对加密的理解就是一段字符串经过增删和置换形成一段新的字符串作为密钥，这放在明面的无论是未加密还是已加密，最后都要变成一段googlevideo服务器可以接受的密钥来获取视频，这个加密的方法几乎可以肯定就在<code>base.js</code>中</p>
-<p><img src="C:\Users\10941\Desktop\md图片\16.png" alt="Chrome"></p>
-<p>这只程序猿真是勤奋，12点了还在写东西，哦格林尼治时间啊，美国就是晚八点，那一般啊，还没享受完福报，从硬盘缓存和失效日期可以看出这不是个会经常改变的东西，因为这里面有五万多行，每次加载肯定是个大麻烦，而且<code>cache-control</code>的值是<code>31536000</code>这不就是一年整嘛，而且经过验证，msedge没有清除过缓存<code>base.js</code>的修改日期是相同的，精确到秒</p>
-<p><img src="C:\Users\10941\Desktop\md图片\17.png" alt="msedge"></p>
-<p>因此每次<code>base.js</code>内容发生变化就是从上传到失效一年整的时间，而我做这个解析的时间是北京时间8月31日十点多，换算成格林尼治时间刚好是8月31日下午两点多，也就是说我弄完睡了个觉起来就失效了wdnmd，这算是<strong>第三个坑</strong>放在第二个坑里一起埋了，所以写程序不能侥幸心理，只看个例</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是更新前的加密js</span></span><br><span class="line"><span class="keyword">var</span> Gv = &#123;</span><br><span class="line">    HF: <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">        a.reverse()</span><br><span class="line">    &#125;,</span><br><span class="line">    A2: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        a.splice(<span class="number">0</span>, b)</span><br><span class="line">    &#125;,</span><br><span class="line">    ch: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> c = a[<span class="number">0</span>];</span><br><span class="line">        a[<span class="number">0</span>] = a[b % a.length];</span><br><span class="line">        a[b % a.length] = c</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Hv = <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">    a = a.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    Gv.A2(a, <span class="number">1</span>);</span><br><span class="line">    Gv.ch(a, <span class="number">39</span>);</span><br><span class="line">    Gv.A2(a, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> a.join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a = Hv(s);</span><br></pre></td></tr></table></figure>
-<p>虽然这个<code>base.js</code>一年才需要看一次，但我还是写了段爬虫来抓它，这不是<code>&lt;link&gt;</code>的js文件，所以要在页面中自己拿</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.76 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;accept-language&quot;</span>: <span class="string">&quot;en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,ar;q=0.6&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">domain = <span class="string">&quot;https://www.youtube.com&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">askURL</span>(<span class="params">url</span>):</span></span><br><span class="line">    res = urllib.request.Request(url=url, headers=headers)</span><br><span class="line">    req = urllib.request.urlopen(res)</span><br><span class="line">    html = req.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseHtml</span>(<span class="params">html</span>):</span></span><br><span class="line">    soup = BeautifulSoup(html, <span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">    basejs = soup.select(<span class="string">&#x27;script[name=&quot;player_ias/base&quot;]&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> basejs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findBaseJs</span>(<span class="params">basejs</span>):</span></span><br><span class="line">    backdrop = re.findall(<span class="string">&#x27;src=&quot;(.*?)&quot;&#x27;</span>, <span class="built_in">str</span>(basejs))[<span class="number">0</span>]</span><br><span class="line">    url = domain + backdrop</span><br><span class="line">    jsfile = askURL(url)</span><br><span class="line">    <span class="keyword">return</span> jsfile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">writeFile</span>(<span class="params">jsfile, basepath</span>):</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(basepath, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(jsfile)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    url = <span class="string">&#x27;https://www.youtube.com/watch?v=LXb3EKWsInQ&amp;t=3s&#x27;</span></span><br><span class="line">    basepath = <span class="string">&#x27;base.js&#x27;</span></span><br><span class="line">    html = askURL(url)</span><br><span class="line">    basejs = parseHtml(html)</span><br><span class="line">    jsfile = findBaseJs(basejs)</span><br><span class="line">    writeFile(jsfile, basepath)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<p>好家伙，一格式化我pycharm就裂开了，内存占用直逼6g，cpu100%</p>
-<p>下面来分析，如果要对一个字符串进行有规律的增删替换，为了保证准确性，就要把每个字符拆解开来，并明确次序，js中的列表或数组可以满足需求，但字符串到列表或数组要先进行分割，<code>split(&quot;&quot;)</code>找一下</p>
-<p><img src="C:\Users\10941\Desktop\md图片\18.png"></p>
-<p>18个结果，不多，可以挨个看，也可以再加一点要求，得是<code>xx = xx.split(&quot;&quot;)</code>的</p>
-<p><img src="C:\Users\10941\Desktop\md图片\19.png"></p>
-<p>13个，已经很接近了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Gv = <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">    a = a.split(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    Fv.Hm(a, <span class="number">30</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">69</span>);</span><br><span class="line">    Fv.Hm(a, <span class="number">3</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">20</span>);</span><br><span class="line">    Fv.Hm(a, <span class="number">52</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">32</span>);</span><br><span class="line">    Fv.D3(a, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> a.join(<span class="string">&quot;&quot;</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>这是最终锁定在它的身上，其实带有一点蒙的成分，因为其他的都太复杂，几百行代码用来调试几十个字母的字符串就离谱</p>
-<p>但这个函数中还调用了其他的方法，好在它们都属于同一个类的实例，其格式应该为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var Fv &#x3D; &#123;Hm、i7、D3方法&#125;</span><br></pre></td></tr></table></figure>
-<p>搜索，区分大小写</p>
-<p><img src="C:\Users\10941\Desktop\md图片\20.png"></p>
-<p>1个匹配，很好，这届的程序猿很给力</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Fv = &#123;</span><br><span class="line">    i7: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> c = a[<span class="number">0</span>];</span><br><span class="line">        a[<span class="number">0</span>] = a[b % a.length];</span><br><span class="line">        a[b % a.length] = c</span><br><span class="line">    &#125;,</span><br><span class="line">    D3: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        a.splice(<span class="number">0</span>, b)</span><br><span class="line">    &#125;,</span><br><span class="line">    Hm: <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">        a.reverse()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>没有调用其他的函数</p>
-<p>我们把它放到一个html，并测试正义联盟的加密签名，只取<code>s=...</code>到<code>&amp;sp=...</code>之间的部分</p>
-<p><img src="C:\Users\10941\Desktop\md图片\21.png"></p>
-<p><img src="C:\Users\10941\Desktop\md图片\22.png"></p>
-<p>在控制台输出一下转换结果</p>
-<p><img src="C:\Users\10941\Desktop\md图片\23.png"></p>
-<p>拼起来试试</p>
-<h3 id="1-2-测试"><a href="#1-2-测试" class="headerlink" title="1.2-测试"></a>1.2-测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;r8---sn-juh-h4hz.googlevideo.com&#x2F;videoplayback?expire&#x3D;1599043381&amp;ei&#x3D;1SJPX5qWN461lQS60bOAAw&amp;ip&#x3D;60.246.31.156&amp;id&#x3D;o-AP59GscvVtiua5kCBqtqPJluGiJ_mc9mUeLQFOQD4fzD&amp;itag&#x3D;271&amp;aitags&#x3D;133,134,135,136,137,160,242,243,244,247,248,271,278,313,394&amp;source&#x3D;youtube&amp;requiressl&#x3D;yes&amp;mh&#x3D;Lh&amp;mm&#x3D;31,29&amp;mn&#x3D;sn-juh-h4hz,sn-i3belnlz&amp;ms&#x3D;au,rdu&amp;mv&#x3D;m&amp;mvi&#x3D;8&amp;pl&#x3D;20&amp;gcr&#x3D;mo&amp;initcwndbps&#x3D;1245000&amp;vprv&#x3D;1&amp;mime&#x3D;video&#x2F;webm&amp;gir&#x3D;yes&amp;clen&#x3D;103903524&amp;dur&#x3D;295.336&amp;lmt&#x3D;1583111107649787&amp;mt&#x3D;1599021634&amp;fvip&#x3D;2&amp;keepalive&#x3D;yes&amp;c&#x3D;WEB&amp;txp&#x3D;5531432&amp;sparams&#x3D;expire,ei,ip,id,aitags,source,requiressl,gcr,vprv,mime,gir,clen,dur,lmt&amp;lsparams&#x3D;mh,mm,mn,ms,mv,mvi,pl,initcwndbps&amp;lsig&#x3D;AG3C_xAwRAIgH8zt-uOJ3LXimSE84XO5KgJz3Rt24VUDlFOBWzA8VpoCICTldKtXf6EoC0ZDybndJsrQ3B2TZspTROi2z3ujg7Cz</span><br><span class="line">&amp;sig&#x3D;AOq0QJ8wRQIhALnp_Mti5Od_7FIrj1poFiBTjqPBBlpTbneoGKr7o8KTAiBpEH9h2m9ucIQq6AvFTmP6M0uwnIIoTBYoFnsCVZ9nLw&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\10941\Desktop\md图片\24.png"></p>
-<p>成功了</p>
-<h3 id="1-3-小结"><a href="#1-3-小结" class="headerlink" title="1.3-小结"></a>1.3-小结</h3><p>yysy比分析信息更难的是给变量和函数起名</p>
-<h2 id="2-亿点点修饰"><a href="#2-亿点点修饰" class="headerlink" title="2-亿点点修饰"></a>2-亿点点修饰</h2><h3 id="2-0-签名解码部分在python的实现"><a href="#2-0-签名解码部分在python的实现" class="headerlink" title="2.0-签名解码部分在python的实现"></a>2.0-签名解码部分在python的实现</h3><p>我们只是用js解出了真实的签名，而python要调用js的函数方法有2：</p>
-<ul>
-<li>1.借助第三方库pyexecjs，在python调用js函数</li>
-<li>2.把js代码转写为python代码</li>
-</ul>
-<p>第一种方法不在考虑范围内，因为我的目标是不借助第三方库完成主程序，所以只有方法2</p>
-<p>而要实现两种语言的人工转换，首先要明确理解不同语言中实现相同作用的函数，或编写间接实现相同作用的自定义函数</p>
-<p>先上代码，找出两种语言中作用不同的地方</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Fv = &#123;</span><br><span class="line">    i7: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> c = a[<span class="number">0</span>];</span><br><span class="line">        a[<span class="number">0</span>] = a[b % a.length]; <span class="comment">//python中为len(a)</span></span><br><span class="line">        a[b % a.length] = c</span><br><span class="line">    &#125;,</span><br><span class="line">    D3: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">        a.splice(<span class="number">0</span>, b) <span class="comment">//splice(index, howmany, item1,...,itemX)索引位置，个数，新添加，这里只用到了前两个参数，而python就需要自定义函数（可能有一样功能的，我不知道）</span></span><br><span class="line">    &#125;,</span><br><span class="line">    Hm: <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">        a.reverse() <span class="comment">//相同</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Gv = <span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">    a = a.split(<span class="string">&quot;&quot;</span>); <span class="comment">//python中split()函数不能用空字符（串）来分割，re.split()可以但要去掉首尾空字符</span></span><br><span class="line">    Fv.Hm(a, <span class="number">30</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">69</span>);</span><br><span class="line">    Fv.Hm(a, <span class="number">3</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">20</span>);</span><br><span class="line">    Fv.Hm(a, <span class="number">52</span>);</span><br><span class="line">    Fv.i7(a, <span class="number">32</span>);</span><br><span class="line">    Fv.D3(a, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> a.join(<span class="string">&quot;&quot;</span>) <span class="comment">//python中join()的使用方法是&quot;分割字符（串）&quot;.join(列表/元组)</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>分析完毕，整理成python</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">decode_dict = &#123;</span><br><span class="line">    <span class="string">&#x27; &#x27;</span>: <span class="string">&#x27;%20&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&quot;&#x27;</span>: <span class="string">&#x27;%22&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;#&#x27;</span>: <span class="string">&#x27;%23&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;%&#x27;</span>: <span class="string">&#x27;%25&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&amp;&#x27;</span>: <span class="string">&#x27;%26&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;(&#x27;</span>: <span class="string">&#x27;%28&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;)&#x27;</span>: <span class="string">&#x27;%29&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;+&#x27;</span>: <span class="string">&#x27;%2B&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;,&#x27;</span>: <span class="string">&#x27;%2C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;/&#x27;</span>: <span class="string">&#x27;%2F&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;:&#x27;</span>: <span class="string">&#x27;%3A&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;;&#x27;</span>: <span class="string">&#x27;%3B&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;&#x27;</span>: <span class="string">&#x27;%3C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;=&#x27;</span>: <span class="string">&#x27;%3D&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&gt;&#x27;</span>: <span class="string">&#x27;%3E&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;?&#x27;</span>: <span class="string">&#x27;%3F&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;@&#x27;</span>: <span class="string">&#x27;%40&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;\\&#x27;</span>: <span class="string">&#x27;%5C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;|&#x27;</span>: <span class="string">&#x27;%7C&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 百分号解码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">seperatorOff</span>(<span class="params">a</span>):</span></span><br><span class="line">    print(<span class="string">&#x27;converting url...&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> decode_dict:</span><br><span class="line">        a = a.replace(decode_dict[key], key)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义函数splice()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">splice</span>(<span class="params"><span class="built_in">list</span>, index, num</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">        <span class="built_in">list</span>[index + i] = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">while</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">in</span> <span class="built_in">list</span>:</span><br><span class="line">        <span class="built_in">list</span>.remove(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------js函数原型-----------</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fv</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">i7</span>(<span class="params">a:<span class="built_in">list</span>, b</span>):</span></span><br><span class="line">        c = a[<span class="number">0</span>]</span><br><span class="line">        a[<span class="number">0</span>] = a[b % <span class="built_in">len</span>(a)]</span><br><span class="line">        a[b % <span class="built_in">len</span>(a)] = c</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">D3</span>(<span class="params">a:<span class="built_in">list</span>, b</span>):</span></span><br><span class="line">        splice(a, <span class="number">0</span>, b)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">Hm</span>(<span class="params">a:<span class="built_in">list</span>, num:<span class="built_in">int</span></span>):</span></span><br><span class="line">        a.reverse()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Gv</span>(<span class="params">s</span>):</span></span><br><span class="line">    a = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> s:</span><br><span class="line">        a.append(item)</span><br><span class="line">    Fv.Hm(a, <span class="number">30</span>)</span><br><span class="line">    Fv.i7(a, <span class="number">69</span>)</span><br><span class="line">    Fv.Hm(a, <span class="number">3</span>)</span><br><span class="line">    Fv.i7(a, <span class="number">20</span>)</span><br><span class="line">    Fv.Hm(a, <span class="number">52</span>)</span><br><span class="line">    Fv.i7(a, <span class="number">32</span>)</span><br><span class="line">    Fv.D3(a, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(a)</span><br><span class="line"><span class="comment"># ----------js函数原型--------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span>(<span class="params">s</span>):</span></span><br><span class="line">    <span class="keyword">return</span> Gv(s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    sigcipher = <span class="string">&quot;&quot;</span></span><br><span class="line">    sigcipher = seperatorOff(sigcipher)</span><br><span class="line">    s = <span class="string">&quot;&quot;</span></span><br><span class="line">    s = decode(s)</span><br></pre></td></tr></table></figure>
-<p>打个包作为自定义第三方库在main中引入</p>
-<h3 id="2-1-调用IDM下载链接（doubt-remains）"><a href="#2-1-调用IDM下载链接（doubt-remains）" class="headerlink" title="2.1-调用IDM下载链接（doubt remains）"></a>2.1-调用IDM下载链接（doubt remains）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call</span>(<span class="params">DownUrl, DownPath, FileName</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    :param DownUrl: 下载链接</span></span><br><span class="line"><span class="string">    :param DownPath: 保存位置</span></span><br><span class="line"><span class="string">    :param FileName: 文件名</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    path = <span class="string">&#x27;C:\\Program Files (x86)\\Internet Download Manager\\&#x27;</span></span><br><span class="line">    IDM = <span class="string">&#x27;idman&#x27;</span></span><br><span class="line">    os.chdir(path)</span><br><span class="line">    FileName = <span class="string">&#x27;123.jpg&#x27;</span></span><br><span class="line">    command = <span class="string">&#x27; &#x27;</span>.join([IDM, <span class="string">&#x27;/d&#x27;</span>, DownUrl, <span class="string">&#x27;/p&#x27;</span>, DownPath, <span class="string">&#x27;/f&#x27;</span>, FileName, <span class="string">&#x27;/q&#x27;</span>])</span><br><span class="line">    <span class="comment"># autoDowncmd = &#x27; &#x27;.join([IDM, &#x27;/s&#x27;])</span></span><br><span class="line">    os.system(command)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-<p><img src="C:\Users\10941\Desktop\md图片\25.png"></p>
-<p>找到IDM路径，使用cmd命令传入参数启动IDM，但命令模式的IDM对链接长度似乎有限制，就此作罢。如图，expire属性之后的属性都没能传入，目前还没有头绪</p>
-<h3 id="2-2-分析时用到的函数"><a href="#2-2-分析时用到的函数" class="headerlink" title="2.2-分析时用到的函数"></a>2.2-分析时用到的函数</h3><p>在分析json文件时需要装载为字典，调用了json库，为了实现对字典键值对的查找，写了一个函数，可以无限递归遍历</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">rtnList = [] <span class="comment"># 要返回的键/值列表</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_dict_allkeys</span>(<span class="params">key, dict_a</span>):</span> <span class="comment"># 查询字典a中键/值，并将键/值放入rtnlist</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    多维/嵌套字典数据无限遍历，获取json返回结果的所有key值集合</span></span><br><span class="line"><span class="string">    :param key:</span></span><br><span class="line"><span class="string">    :param dict_a:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(dict_a, <span class="built_in">dict</span>):  <span class="comment"># 使用isinstance检测数据类型</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(dict_a)):</span><br><span class="line">            temp_key = <span class="built_in">list</span>(dict_a.keys())[x]</span><br><span class="line">            temp_value = dict_a[temp_key]</span><br><span class="line">            <span class="keyword">if</span> temp_key == key:</span><br><span class="line">                rtnList.append(temp_key + <span class="string">&#x27;:&#x27;</span> + temp_value)</span><br><span class="line">            get_dict_allkeys(key, rtnList)  <span class="comment"># 自我调用实现无限遍历</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> <span class="built_in">isinstance</span>(dict_a, <span class="built_in">list</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> dict_a:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(k, <span class="built_in">dict</span>):</span><br><span class="line">                <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(k)):</span><br><span class="line">                    temp_key = <span class="built_in">list</span>(k.keys())[x]</span><br><span class="line">                    temp_value = k[temp_key]</span><br><span class="line">                    <span class="keyword">if</span> temp_key == key:</span><br><span class="line">                        rtnList.append(temp_value)</span><br><span class="line">                    get_dict_allkeys(key, rtnList)</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-成品（半成品）"><a href="#2-3-成品（半成品）" class="headerlink" title="2.3-成品（半成品）"></a>2.3-成品（半成品）</h3><p>成品是说，如果以学习的目的来看，程序的每一步都能达到我想要的目的，稳定、代码逻辑清晰</p>
-<p>半成品是说，在用户使用的角度看，冗余的部分太多，像日志、不必要的分步、命名规范等</p>
-<h3 id="2-4-小结"><a href="#2-4-小结" class="headerlink" title="2.4-小结"></a>2.4-小结</h3><p>一个合格的程序要能完成对错误的自动处理，除非人为设置断点，不能因为冲突而退出</p>
-<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3-总结"></a>3-总结</h2><p>前面都总结完啦，占个空，比较符合规矩</p>
-<p>2020-09-02</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/README/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySql初始化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MySql初始化"><a href="#MySql初始化" class="headerlink" title="MySql初始化"></a>MySql初始化</h1><p>1.安装服务（若未配置bin环境则在bin目录下打开cmd）<code>mysqld --install</code></p>
-<p>2.初始化<code>mysqld --initialize --console</code>记下<code>root@localhost</code>的临时密码</p>
-<p>3.启动服务<code>net start MySql</code></p>
-<p>4.登录<code>mysql -u root -p</code>输入密码</p>
-<ul>
-<li>我的mysql root用户密码为<code>000530</code></li>
-</ul>
-<p>5.修改密码<code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;&lt;password&gt;&#39;</code>输入密码</p>
-<p>6.<code>exit</code>退出然后重新登陆<code>mysql -u root -p</code>验证新密码</p>
-<p>7.删除mysql服务<code>sc delete mysql</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Blog/2021/01/21/MySql%E5%88%9D%E5%A7%8B%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -805,8 +404,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
