@@ -876,6 +876,7 @@ textarea {
 }
 
 body {
+    transition: ease-in-out .1s;
     overflow-y: hidden;
     background: #eaeaea
 }
@@ -921,7 +922,7 @@ html {
 
 .mid-col.show {
     background: none;
-    opacity: .9
+    opacity: 1
 }
 
 .mid-col.show .article {
@@ -932,7 +933,7 @@ html {
     background: #fff;
     width: 300px;
     position: fixed;
-    opacity: 1;
+    opacity: .8;
     transition: all .2s ease-in;
     height: 100%;
     z-index: 999
