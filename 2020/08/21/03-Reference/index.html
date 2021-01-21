@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://hugaotuan.top">
-  <title>MySql初始化 | 胡高团のHyperSpace</title>
+  <title>Reference | 胡高团のHyperSpace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.安装服务（若未配置bin环境则在bin目录下打开cmd）mysqld --install 2.初始化mysqld --initialize --console记下root@localhost的临时密码 3.启动服务net start MySql">
+  <meta name="description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3  12345678910111213141516void test() &amp;#123;  int arr[] &#x3D; &amp;#123;1, 2, 3&amp;#125;;   &#x2F;&#x2F; 指针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql初始化">
-<meta property="og:url" content="https://hugaotuan.top/2020/12/09/MySql%E5%88%9D%E5%A7%8B%E5%8C%96/index.html">
+<meta property="og:title" content="Reference">
+<meta property="og:url" content="https://hugaotuan.top/2020/08/21/03-Reference/index.html">
 <meta property="og:site_name" content="胡高团のHyperSpace">
-<meta property="og:description" content="1.安装服务（若未配置bin环境则在bin目录下打开cmd）mysqld --install 2.初始化mysqld --initialize --console记下root@localhost的临时密码 3.启动服务net start MySql">
+<meta property="og:description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3  12345678910111213141516void test() &amp;#123;  int arr[] &#x3D; &amp;#123;1, 2, 3&amp;#125;;   &#x2F;&#x2F; 指针">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-12-09T05:55:05.000Z">
-<meta property="article:modified_time" content="2021-01-21T08:15:49.058Z">
+<meta property="article:published_time" content="2020-08-21T03:03:10.000Z">
+<meta property="article:modified_time" content="2021-01-21T13:56:16.063Z">
 <meta property="article:author" content="Hugaotuan">
-<meta property="article:tag" content="日常">
-<meta property="article:tag" content="学业">
+<meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="胡高团のHyperSpace" type="application/atom+xml">
@@ -158,38 +157,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="hello-MySql初始化" class="article article-type-hello " itemscope itemprop="blogPost">
+            <article id="hello-03-Reference" class="article article-type-hello " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      MySql初始化
+      Reference
     </h1>
   
 
     
-    <a href="/2020/12/09/MySql%E5%88%9D%E5%A7%8B%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2020-12-09T05:55:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-09</time>
+    <a href="/2020/08/21/03-Reference/" class="archive-article-date">
+  	<time datetime="2020-08-21T03:03:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
 </a>
     
     </header>
     
     <div class="article-entry" itemprop="articleBody">
         
-        <p>1.安装服务（若未配置bin环境则在bin目录下打开cmd）<code>mysqld --install</code></p>
-<p>2.初始化<code>mysqld --initialize --console</code>记下<code>root@localhost</code>的临时密码</p>
-<p>3.启动服务<code>net start MySql</code></p>
-<a id="more"></a>
-
-<p>4.登录<code>mysql -u root -p</code>输入密码</p>
-<ul>
-<li>我的mysql root用户密码为<code>000530</code></li>
+        <h3 id="1-问题导入"><a href="#1-问题导入" class="headerlink" title="1.问题导入"></a>1.问题导入</h3><ul>
+<li><code>int arr[3] = &#123;1, 2, 3&#125;;</code>，区分<code>int* arr1[3];</code>，<code>int (*arr2)[3];</code>：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为<code>3</code></li>
 </ul>
-<p>5.修改密码<code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;&lt;password&gt;&#39;</code>输入密码</p>
-<p>6.<code>exit</code>退出然后重新登陆<code>mysql -u root -p</code>验证新密码</p>
-<p>7.删除mysql服务<code>sc delete mysql</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  </span><br><span class="line"> <span class="comment">// 指针数组，可储存3个int*</span></span><br><span class="line">  <span class="keyword">int</span>* arr1[<span class="number">3</span>] = &#123;p, p, p&#125;;</span><br><span class="line"> <span class="comment">/* int*是整体，代表了arr[3](长度为3的</span></span><br><span class="line"><span class="comment"> 数组名为arr1的数组)是指针类型，即其中的每一个元素都是指针 */</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//数组指针，用于指向数组的指针</span></span><br><span class="line">  <span class="keyword">int</span> (*arr2)[<span class="number">3</span>]; <span class="comment">// (*arr2)是一个整体代表了指针类型，</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//指向int[3]长度的数组</span></span><br><span class="line"> <span class="comment">// 引用的本质就是指针</span></span><br><span class="line">  <span class="keyword">int</span> (&amp;ref)[<span class="number">3</span>] = arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-常引用-Const-Reference"><a href="#2-常引用-Const-Reference" class="headerlink" title="2.常引用(Const Reference)"></a>2.常引用(Const Reference)</h3><ul>
+<li><code>int *const p = age;</code>，<code>int const *p = age;</code>，照例，<code>const</code>修饰其右边的代码，所以第一个是常量指针，后者是指针常量，前者不能修改指向，但可以间接修改p指向的值，后者不能修改指向的值，即前者<code>p</code>的值无法改变，后者<code>*p</code>的值无法改变</li>
+</ul>
+<ul>
+<li><p>而当<code>int &amp; const ref = a;</code>时，由于<code>ref</code>本质是指针，但是其指向<code>readonly</code>所以有无<code>const</code>对引用无影响，但如果是<code>int const &amp;ref = a;</code>或<code>const int &amp;ref = a;</code>则相当于<code>a</code>的<code>ref</code>的值无法改变，即<code>a</code>的值为常量</p>
+</li>
+<li><p><code>const</code>必须写在<code>&amp;</code>的左边，才能算是常引用</p>
+</li>
+<li><p>常引用可以指向临时数据（常量、表达式、函数返回值等）</p>
+</li>
+<li><p><strong>例：</strong><code>const int &amp;ref = 10; // (int const  &amp;ref = 10;) √</code>，<code>int &amp;ref = 10; // ×</code>，究其原因，引用的本质是指针，指针中必须是某个地址，很显然数字不满足，而引用本身就是无法改变指向的，常引用同时又无法改变指向元素的值，因此可以指向临时数据</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> &amp;ref = a + b; <span class="comment">// 报错</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> &amp;ref1 = a + b; <span class="comment">// 通过</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> &amp;ref = func(); <span class="comment">// 报错</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> &amp;ref2 = func(); <span class="comment">// 通过</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 指向不同类型的数据 */</span></span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">3</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> &amp;ref3 = c; <span class="comment">// 报错</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">double</span> &amp;ref3 = c; <span class="comment">// 通过</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="常引用作为函数参数时（此规则也适用于const指针）："><a href="#常引用作为函数参数时（此规则也适用于const指针）：" class="headerlink" title="常引用作为函数参数时（此规则也适用于const指针）："></a>常引用作为函数参数时（此规则也适用于<code>const</code>指针）：</h3><p>  <strong>1.可以接受<code>const</code>和非<code>const</code>实参（非<code>const</code>引用，只能接受非<code>const</code>实参</strong></p>
+<p>  <strong>2.可以跟非<code>const</code>引用构成重载（用<code>const</code>引用和非<code>const</code>引用的两个重名函数，c++编译器会认为是两个不同的函数）</strong></p>
+<p>  <strong>3.当引用不同类型的数据时，会把不同类型的数据取出放入到一个临时的局部变量中，再赋值给引用，因此当改变原变量时，引用的值不会变，同类型引用则不会</strong></p>
+<p>  <strong>例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">long</span> &amp;rAge = age;</span><br><span class="line">    age = <span class="number">20</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;age = &quot;</span> &lt;&lt; age &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;rAge = &quot;</span> &lt;&lt; rAge &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-------------------console------------------</span><br><span class="line">age = <span class="number">20</span></span><br><span class="line">rAge = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="3-引用数组"><a href="#3-引用数组" class="headerlink" title="3.引用数组"></a>3.引用数组</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> (&amp;ref)[<span class="number">3</span>] = arr; <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">int</span> *&amp;ref = arr; <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> &amp;ref = arr; <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>数组名等于其首元素地址（见04-C/C++数组指针）</p>
+</li>
+<li><p>1.意为长度为3的数组的引用</p>
+</li>
+<li><p>1.5在数组定义的那一刻首元素的地址就已是固定的了，相当于一个常量，所以非<code>const</code>引用报错</p>
+</li>
+<li><p>2.意为常引用数组首元素指针，<code>ref</code>是<code>int*</code>类型</p>
+</li>
+</ul>
 
         
 
@@ -224,11 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学业</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
         		</li>
       		
 		</ul>
@@ -284,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hugaotuan.top/2020/12/09/MySql%E5%88%9D%E5%A7%8B%E5%8C%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hugaotuan.top/2020/08/21/03-Reference/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +320,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2020/12/09/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84--%E5%92%8C-/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/08/21/01-x64%E8%A6%81%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          命令行的--和-
+          汇编要点总结
         
       </div>
     </a>
   
   
-    <a href="/2020/09/02/README/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">-Threads-Youtube_SingnatureCipher_Decryptor</div>
+    <a href="/2020/08/20/00-x86_x64_Assembly/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">汇编语言种类</div>
       <i class="icon-circle-right"></i>
     </a>
   
