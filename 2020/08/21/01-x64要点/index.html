@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://hugaotuan.top">
   <title>汇编要点总结 | 胡高团のHyperSpace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mov(move) mov dest, src 将src的内容赋值给dest，类似于dest &#x3D; src  已知计算机中最小的存取单位是1字节，则int占4字节则向更高位内存地址占用  [地址值]中括号里面放的都是内存地址  mov eax, dword ptr [1128h]从内存地址为1128h的空间中向高地址四个字节取出内容  通常来说编译器不会直接从某个固定的地址取放内容，而是像[ebp-">
+  <meta name="description" content="mov(move) mov dest, src 将src的内容赋值给dest，类似于dest &#x3D; src  已知计算机中最小的存取单位是1字节，则int占4字节则向更高位内存地址占用  [地址值]中括号里面放的都是内存地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编要点总结">
 <meta property="og:url" content="https://hugaotuan.top/2020/08/21/01-x64%E8%A6%81%E7%82%B9/index.html">
 <meta property="og:site_name" content="胡高团のHyperSpace">
-<meta property="og:description" content="mov(move) mov dest, src 将src的内容赋值给dest，类似于dest &#x3D; src  已知计算机中最小的存取单位是1字节，则int占4字节则向更高位内存地址占用  [地址值]中括号里面放的都是内存地址  mov eax, dword ptr [1128h]从内存地址为1128h的空间中向高地址四个字节取出内容  通常来说编译器不会直接从某个固定的地址取放内容，而是像[ebp-">
+<meta property="og:description" content="mov(move) mov dest, src 将src的内容赋值给dest，类似于dest &#x3D; src  已知计算机中最小的存取单位是1字节，则int占4字节则向更高位内存地址占用  [地址值]中括号里面放的都是内存地址">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-08-21T03:34:08.000Z">
-<meta property="article:modified_time" content="2021-01-21T13:56:24.237Z">
+<meta property="article:modified_time" content="2021-01-21T13:58:29.726Z">
 <meta property="article:author" content="Hugaotuan">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
@@ -184,6 +184,10 @@
 </li>
 <li><p><code>[地址值]</code>中括号里面放的都是内存地址</p>
 </li>
+</ul>
+<a id="more"></a>
+
+<ul>
 <li><p><code>mov eax, dword ptr [1128h]</code>从内存地址为<code>1128h</code>的空间中向高地址四个字节取出内容</p>
 </li>
 <li><p>通常来说编译器不会直接从某个固定的地址取放内容，而是像<code>[ebp-0ch]</code>这样，<code>ebp</code>即为基址指针<code>esp</code>是堆栈指针</p>

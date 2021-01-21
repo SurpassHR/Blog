@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://hugaotuan.top">
   <title>Reference | 胡高团のHyperSpace</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3  12345678910111213141516void test() &amp;#123;  int arr[] &#x3D; &amp;#123;1, 2, 3&amp;#125;;   &#x2F;&#x2F; 指针">
+  <meta name="description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reference">
 <meta property="og:url" content="https://hugaotuan.top/2020/08/21/03-Reference/index.html">
 <meta property="og:site_name" content="胡高团のHyperSpace">
-<meta property="og:description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3  12345678910111213141516void test() &amp;#123;  int arr[] &#x3D; &amp;#123;1, 2, 3&amp;#125;;   &#x2F;&#x2F; 指针">
+<meta property="og:description" content="1.问题导入 int arr[3] &#x3D; &amp;#123;1, 2, 3&amp;#125;;，区分int* arr1[3];，int (*arr2)[3];：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为3">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-08-21T03:03:10.000Z">
-<meta property="article:modified_time" content="2021-01-21T13:56:16.063Z">
+<meta property="article:modified_time" content="2021-01-21T13:58:59.201Z">
 <meta property="article:author" content="Hugaotuan">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
@@ -180,6 +180,8 @@
         <h3 id="1-问题导入"><a href="#1-问题导入" class="headerlink" title="1.问题导入"></a>1.问题导入</h3><ul>
 <li><code>int arr[3] = &#123;1, 2, 3&#125;;</code>，区分<code>int* arr1[3];</code>，<code>int (*arr2)[3];</code>：前者是指针数组，后者是数组指针，前者储存指针，后者指向数组且规定了指向的数组长度为<code>3</code></li>
 </ul>
+<a id="more"></a>
+
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> arr[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">  </span><br><span class="line"> <span class="comment">// 指针数组，可储存3个int*</span></span><br><span class="line">  <span class="keyword">int</span>* arr1[<span class="number">3</span>] = &#123;p, p, p&#125;;</span><br><span class="line"> <span class="comment">/* int*是整体，代表了arr[3](长度为3的</span></span><br><span class="line"><span class="comment"> 数组名为arr1的数组)是指针类型，即其中的每一个元素都是指针 */</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//数组指针，用于指向数组的指针</span></span><br><span class="line">  <span class="keyword">int</span> (*arr2)[<span class="number">3</span>]; <span class="comment">// (*arr2)是一个整体代表了指针类型，</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//指向int[3]长度的数组</span></span><br><span class="line"> <span class="comment">// 引用的本质就是指针</span></span><br><span class="line">  <span class="keyword">int</span> (&amp;ref)[<span class="number">3</span>] = arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="2-常引用-Const-Reference"><a href="#2-常引用-Const-Reference" class="headerlink" title="2.常引用(Const Reference)"></a>2.常引用(Const Reference)</h3><ul>
