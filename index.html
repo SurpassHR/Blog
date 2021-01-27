@@ -185,11 +185,9 @@
         <p>研究了一下午，终于实现了在当前目录以管理员身份运行Windows Terminal</p>
 <h2 id="1-通过-reg直接向注册表添加表项"><a href="#1-通过-reg直接向注册表添加表项" class="headerlink" title="1.通过.reg直接向注册表添加表项"></a>1.通过.reg直接向注册表添加表项</h2><p><strong>注释中写了每句的意思以及作用</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\runas]</span><br><span class="line">@&#x3D;&quot;Open Windows Terminal Here&quot; ; 这是在右键菜单中显示的项目名称</span><br><span class="line">&quot;ShowBasedOnVelocityId&quot;&#x3D;dword:00639bc8 ; 这一项可以实现管理员打开cmd</span><br><span class="line">; &quot;Icon&quot;&#x3D;&#123;&#125; ; 打开注释，将&quot;&#123;&#125;&quot;替换为程序或ico图标地址，这里是2位16进制，建议完成添加后再去注册表修改图标</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\runas\command]</span><br><span class="line">@&#x3D;&quot;cmd.exe &#x2F;s &#x2F;c pushd \&quot;%V\&quot; &amp; \&quot;&#123;&#125;\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe\&quot;&quot; ; 最后写了每个参数的作用</span><br><span class="line">; &quot;&#123;&#125;&quot;用在cmd中输入%USERPROFILE%输出的结果替换，注意双斜杠以防止转义</span><br></pre></td></tr></table></figure>
-<h2 id="2-手动添加"><a href="#2-手动添加" class="headerlink" title="2.手动添加"></a>2.手动添加</h2><p>1.找到表项<code>HKEY_CLASSES_ROOT\Directory\Background\shell</code>，右键<code>shell</code>项，新建项<code>runas</code>（这个名字不能改，是管理员启动的关键），默认值是在右键菜单中显示的项目名称<br><img src="https://upload-images.jianshu.io/upload_images/22433328-0d2084d33021f12f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建表项"><br><img src="https://upload-images.jianshu.io/upload_images/22433328-4f4407c08462a401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改表项名称"><br>2.在此项下新建一个名为<code>ShowBasedOnVelocityId</code>的<strong>DWORD(32位)值</strong>，数值为<strong>十六进制</strong><code>639bc8</code>，<br><img src="https://upload-images.jianshu.io/upload_images/22433328-9e2f8f42621321af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="以管理员打开"><br>*3.新建可扩充字符串值<code>Icon</code>，数值为图标位置或者带有图标的应用程序位置，我直接用了wt.exe的路径，此项为可选<br><img src="https://upload-images.jianshu.io/upload_images/22433328-d428dd0305081867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置图标"><br>4.新建名为<code>command</code>的项，默认值为<code>cmd.exe /s /c pushd &quot;%V&quot; &amp; &quot;&#123;&#125;\AppData\Local\Microsoft\WindowsApps\wt.exe&quot;</code>，”<code>&#123;&#125;</code>“中是在cmd中输入%USERPROFILE%输出的结果<br><img src="https://upload-images.jianshu.io/upload_images/22433328-f73b80d32bc49fe6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置wt启动指令"><br><img src="https://upload-images.jianshu.io/upload_images/22433328-040d7fe1ed201e8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置wt启动指令"><br>5.设置wt新标签及其打开目录，<code>defaultProfile</code>值和<code>list</code>中的窗口属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;defaultProfile&quot;: &quot;&#123;0caa0dad-35be-5f56-a8ff-afceeeaa6101&#125;&quot;, &#x2F;&#x2F;打开新标签的guid</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;guid&quot;: &quot;&#123;0caa0dad-35be-5f56-a8ff-afceeeaa6101&#125;&quot;,</span><br><span class="line">&quot;name&quot;: &quot;命令提示符&quot;,</span><br><span class="line">&quot;commandline&quot;: &quot;cmd.exe&quot;,</span><br><span class="line">&quot;hidden&quot;: false,</span><br><span class="line">&quot;useAcrylic&quot;: true,</span><br><span class="line">&quot;padding&quot;: &quot;5, 0, -10, 10&quot;,</span><br><span class="line">&quot;acrylicOpacity&quot;: 0.75,</span><br><span class="line">&quot;startingDirectory&quot;: null &#x2F;&#x2F;null即为堆栈顶层的路径地址即为%V</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>6.最终效果<br><img src="https://upload-images.jianshu.io/upload_images/22433328-9a83b6957bedaf3a.gif?imageMogr2/auto-orient/strip" alt="最终效果"><br>7.各个参数的含义及其用法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe</span><br><span class="line">&#x2F;s         表示修改 &#x2F;c 或 &#x2F;k 后对 String 的处理。</span><br><span class="line">&#x2F;c         表示在运行后关闭窗口</span><br><span class="line">pushd %V   pushd改变当前目录到指定目录，并保存当前的目录在堆栈顶端 在此处&quot;%V&quot;为当前工作目录，所以如果设置起始目录为null则打开当前目录</span><br><span class="line">&quot;路径&quot;     在管理员模式的cmd打开程序</span><br></pre></td></tr></table></figure>
+        
+        <a class="article-more-a" href="/2021/01/27/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%89%93%E5%BC%80Windows-Terminal/#more">more >></a>
+        
         
 
         
@@ -250,7 +248,7 @@
     
     <div class="article-entry" itemprop="articleBody">
         
-        <h2 id="java客户端部分"><a href="#java客户端部分" class="headerlink" title="java客户端部分"></a>java客户端部分</h2><h4 id="1-开始，在ShellMain启动shell主循环"><a href="#1-开始，在ShellMain启动shell主循环" class="headerlink" title="1. 开始，在ShellMain启动shell主循环"></a>1. 开始，在<code>ShellMain</code>启动shell主循环</h4><h4 id="2-在shell中输入start命令，启动服务器侦听服务"><a href="#2-在shell中输入start命令，启动服务器侦听服务" class="headerlink" title="2.在shell中输入start命令，启动服务器侦听服务"></a>2.在shell中输入<code>start</code>命令，启动服务器侦听服务</h4><h4 id="3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"><a href="#3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变" class="headerlink" title="3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"></a>3.服务器启动端口号<code>PORT</code>设置的本地代理服务地址，对应的远程连接地址可以在<code>cmd</code>中通过<code>ipconfig</code>查看，开放端口号不变</h4><p> <a target="_blank" rel="noopener" href="https://imgchr.com/i/s8acrj"><img src="https://s3.ax1x.com/2021/01/11/s8acrj.png" alt="s8acrj.png"></a></p>
+        <h2 id="java客户端部分"><a href="#java客户端部分" class="headerlink" title="java客户端部分"></a>java客户端部分</h2><h4 id="1-开始，在ShellMain启动shell主循环"><a href="#1-开始，在ShellMain启动shell主循环" class="headerlink" title="1. 开始，在ShellMain启动shell主循环"></a>1. 开始，在<code>ShellMain</code>启动shell主循环</h4><h4 id="2-在shell中输入start命令，启动服务器侦听服务"><a href="#2-在shell中输入start命令，启动服务器侦听服务" class="headerlink" title="2.在shell中输入start命令，启动服务器侦听服务"></a>2.在shell中输入<code>start</code>命令，启动服务器侦听服务</h4><h4 id="3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"><a href="#3-服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变" class="headerlink" title="3.服务器启动端口号PORT设置的本地代理服务地址，对应的远程连接地址可以在cmd中通过ipconfig查看，开放端口号不变"></a>3.服务器启动端口号<code>PORT</code>设置的本地代理服务地址，对应的远程连接地址可以在<code>cmd</code>中通过<code>ipconfig</code>查看，开放端口号不变</h4>
         
         <a class="article-more-a" href="/2021/01/11/%E5%A4%A7%E4%BD%9C%E4%B8%9A/#more">more >></a>
         
@@ -329,7 +327,7 @@
     
     <div class="article-entry" itemprop="articleBody">
         
-        <h4 id="1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查"><a href="#1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查" class="headerlink" title="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查"></a>1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查</h4><h4 id="2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"><a href="#2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改" class="headerlink" title="2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"></a>2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改</h4><h4 id="3-通过Device和Deviceht来新建设备实体和温湿度状态"><a href="#3-通过Device和Deviceht来新建设备实体和温湿度状态" class="headerlink" title="3.通过Device和Deviceht来新建设备实体和温湿度状态"></a>3.通过Device和Deviceht来新建设备实体和温湿度状态</h4><h4 id="4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括"><a href="#4-这些方法通过Shell框架读取cmd-properties中的命令行属性配置来实现后端命令的调用，包括" class="headerlink" title="4.这些方法通过Shell框架读取cmd.properties中的命令行属性配置来实现后端命令的调用，包括"></a>4.这些方法通过Shell框架读取<code>cmd.properties</code>中的命令行属性配置来实现后端命令的调用，包括</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add  添加</span><br><span class="line"><span class="keyword">delete</span>  删除</span><br><span class="line">help  命令帮助</span><br><span class="line"><span class="built_in">list</span>  列出设备</span><br><span class="line">val  开关阀门</span><br></pre></td></tr></table></figure>
+        <h4 id="1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查"><a href="#1-Device-server-其中包含了对device实体的各种操作，包括对于设备的增删改查" class="headerlink" title="1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查"></a>1.Device server 其中包含了对device实体的各种操作，包括对于设备的增删改查</h4><h4 id="2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"><a href="#2-DeviceHT-server-其中包含了对device设备温湿度和阀门状态各种操作，包括增删改" class="headerlink" title="2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改"></a>2.DeviceHT server 其中包含了对device设备温湿度和阀门状态各种操作，包括增删改</h4><h4 id="3-通过Device和Deviceht来新建设备实体和温湿度状态"><a href="#3-通过Device和Deviceht来新建设备实体和温湿度状态" class="headerlink" title="3.通过Device和Deviceht来新建设备实体和温湿度状态"></a>3.通过Device和Deviceht来新建设备实体和温湿度状态</h4>
         
         <a class="article-more-a" href="/2021/01/05/%E7%82%B9%E7%82%B9%E7%9A%84%E7%A8%BF%E5%AD%90/#more">more >></a>
         
@@ -489,8 +487,6 @@
         
         <h2 id="按照有-和没有-划分"><a href="#按照有-和没有-划分" class="headerlink" title="按照有-和没有-划分"></a>按照有<code>-</code>和没有<code>-</code>划分</h2><p>参数前有<code>-</code>的是 System V风格。</p>
 <p>参数前没有<code>-</code>的是 BSD风格。</p>
-<h2 id="System-V中按照-和-划分"><a href="#System-V中按照-和-划分" class="headerlink" title="System V中按照--和-划分"></a>System V中按照<code>--</code>和<code>-</code>划分</h2><p><code>-</code>的后面跟的是字符<code>ls -a</code></p>
-<p><code>--</code>后面跟的是字符串或者说单词<code>cp --help</code></p>
         
         <a class="article-more-a" href="/2020/12/09/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84--%E5%92%8C-/#more">more >></a>
         
@@ -653,8 +649,6 @@
         <p>requests库/多线程/默认最高质量音轨和图像</p>
 <p>环境：python3<br>第三方库：requests pyexecjs</p>
 <p>js运行环境：Nodejs</p>
-<h4 id="Note-2020-09-05-推翻了之前的一个猜想，base-js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase-py可以得到算法的完整内容。"><a href="#Note-2020-09-05-推翻了之前的一个猜想，base-js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase-py可以得到算法的完整内容。" class="headerlink" title="@Note 2020-09-05 推翻了之前的一个猜想，base.js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行getDecodeBase.py可以得到算法的完整内容。"></a>@Note 2020-09-05 推翻了之前的一个猜想，base.js加密文件的覆写日期并不等于其过期日期，一般3到5天进行一次更新，在未格式化的文件中，算法的主函数位于1400-1500行之间，调用的类方法在5500-5700行之间，利用正则表达式可以获取算法函数的内容；函数每次变换的是顺序或者操作次数或者函数、变量名，并不会更改调用函数的内容，通过运行<code>getDecodeBase.py</code>可以得到算法的完整内容。</h4><h4 id="Note-2020-09-07-根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne-py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接-下载的能力，更新也告一段落，必要时-闲的蛋疼时-会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。"><a href="#Note-2020-09-07-根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne-py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接-下载的能力，更新也告一段落，必要时-闲的蛋疼时-会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。" class="headerlink" title="@Note 2020-09-07 根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行decodeAllinOne.py来更新解密算法。至此，YSD在短时间内拥有了独立解析链接+下载的能力，更新也告一段落，必要时(闲的蛋疼时)会继续完成To-Do中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。"></a>@Note 2020-09-07 根据之前推翻的猜想，重新设计了解密算法的生成部分，当解密失效时，通过运行<code>decodeAllinOne.py</code>来更新解密算法。至此，YSD在短时间内拥有了独立解析链接+下载的能力，更新也告一段落，必要时(闲的蛋疼时)会继续完成<a href="#To-Do">To-Do</a>中的剩余更新。但也因为增添了新的第三方库和js解释器，使得程序的易用性降低，所以说程序的功能主要对开发者开放，以便于其维护和学习。</h4><h2 id="What-you-should-do-to-build-the-environment"><a href="#What-you-should-do-to-build-the-environment" class="headerlink" title="What you should do to build the environment"></a>What you should do to build the environment</h2><p>1.<code>pip install -r requirement.txt</code></p>
-<p>2.<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js官网</a>下载Node.js并按照默认设置安装</p>
         
         <a class="article-more-a" href="/2020/09/02/README/#more">more >></a>
         
@@ -1082,19 +1076,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日常</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">python项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
