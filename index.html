@@ -162,6 +162,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-右键菜单在当前目录以管理员打开Windows-Terminal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/27/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%89%93%E5%BC%80Windows-Terminal/">右键菜单在当前目录以管理员打开Windows Terminal</a>
+    </h1>
+  
+
+    
+    <a href="/2021/01/27/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%89%93%E5%BC%80Windows-Terminal/" class="archive-article-date">
+  	<time datetime="2021-01-27T13:06:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        <p>研究了一下午，终于实现了在当前目录以管理员身份运行Windows Terminal</p>
+<h2 id="1-通过-reg直接向注册表添加表项"><a href="#1-通过-reg直接向注册表添加表项" class="headerlink" title="1.通过.reg直接向注册表添加表项"></a>1.通过.reg直接向注册表添加表项</h2><p><strong>注释中写了每句的意思以及作用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\runas]</span><br><span class="line">@&#x3D;&quot;Open Windows Terminal Here&quot; ; 这是在右键菜单中显示的项目名称</span><br><span class="line">&quot;ShowBasedOnVelocityId&quot;&#x3D;dword:00639bc8 ; 这一项可以实现管理员打开cmd</span><br><span class="line">; &quot;Icon&quot;&#x3D;&#123;&#125; ; 打开注释，将&quot;&#123;&#125;&quot;替换为程序或ico图标地址，这里是2位16进制，建议完成添加后再去注册表修改图标</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\runas\command]</span><br><span class="line">@&#x3D;&quot;cmd.exe &#x2F;s &#x2F;c pushd \&quot;%V\&quot; &amp; \&quot;&#123;&#125;\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe\&quot;&quot; ; 最后写了每个参数的作用</span><br><span class="line">; &quot;&#123;&#125;&quot;用在cmd中输入%USERPROFILE%输出的结果替换，注意双斜杠以防止转义</span><br></pre></td></tr></table></figure>
+<h2 id="2-手动添加"><a href="#2-手动添加" class="headerlink" title="2.手动添加"></a>2.手动添加</h2><p>1.找到表项<code>HKEY_CLASSES_ROOT\Directory\Background\shell</code>，右键<code>shell</code>项，新建项<code>runas</code>（这个名字不能改，是管理员启动的关键），默认值是在右键菜单中显示的项目名称<br><img src="https://upload-images.jianshu.io/upload_images/22433328-0d2084d33021f12f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建表项"><br><img src="https://upload-images.jianshu.io/upload_images/22433328-4f4407c08462a401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改表项名称"><br>2.在此项下新建一个名为<code>ShowBasedOnVelocityId</code>的<strong>DWORD(32位)值</strong>，数值为<strong>十六进制</strong><code>639bc8</code>，<br><img src="https://upload-images.jianshu.io/upload_images/22433328-9e2f8f42621321af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="以管理员打开"><br>*3.新建可扩充字符串值<code>Icon</code>，数值为图标位置或者带有图标的应用程序位置，我直接用了wt.exe的路径，此项为可选<br><img src="https://upload-images.jianshu.io/upload_images/22433328-d428dd0305081867.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置图标"><br>4.新建名为<code>command</code>的项，默认值为<code>cmd.exe /s /c pushd &quot;%V&quot; &amp; &quot;&#123;&#125;\AppData\Local\Microsoft\WindowsApps\wt.exe&quot;</code>，”<code>&#123;&#125;</code>“中是在cmd中输入%USERPROFILE%输出的结果<br><img src="https://upload-images.jianshu.io/upload_images/22433328-f73b80d32bc49fe6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置wt启动指令"><br><img src="https://upload-images.jianshu.io/upload_images/22433328-040d7fe1ed201e8c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置wt启动指令"><br>5.设置wt新标签及其打开目录，<code>defaultProfile</code>值和<code>list</code>中的窗口属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;defaultProfile&quot;: &quot;&#123;0caa0dad-35be-5f56-a8ff-afceeeaa6101&#125;&quot;, &#x2F;&#x2F;打开新标签的guid</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;guid&quot;: &quot;&#123;0caa0dad-35be-5f56-a8ff-afceeeaa6101&#125;&quot;,</span><br><span class="line">&quot;name&quot;: &quot;命令提示符&quot;,</span><br><span class="line">&quot;commandline&quot;: &quot;cmd.exe&quot;,</span><br><span class="line">&quot;hidden&quot;: false,</span><br><span class="line">&quot;useAcrylic&quot;: true,</span><br><span class="line">&quot;padding&quot;: &quot;5, 0, -10, 10&quot;,</span><br><span class="line">&quot;acrylicOpacity&quot;: 0.75,</span><br><span class="line">&quot;startingDirectory&quot;: null &#x2F;&#x2F;null即为堆栈顶层的路径地址即为%V</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>6.最终效果<br><img src="https://upload-images.jianshu.io/upload_images/22433328-9a83b6957bedaf3a.gif?imageMogr2/auto-orient/strip" alt="最终效果"><br>7.各个参数的含义及其用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cmd.exe</span><br><span class="line">&#x2F;s         表示修改 &#x2F;c 或 &#x2F;k 后对 String 的处理。</span><br><span class="line">&#x2F;c         表示在运行后关闭窗口</span><br><span class="line">pushd %V   pushd改变当前目录到指定目录，并保存当前的目录在堆栈顶端 在此处&quot;%V&quot;为当前工作目录，所以如果设置起始目录为null则打开当前目录</span><br><span class="line">&quot;路径&quot;     在管理员模式的cmd打开程序</span><br></pre></td></tr></table></figure>
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
+        
+
+        
+        <p class="article-more-link">
+            <a class="article-more-a" href="/2021/01/27/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E6%89%93%E5%BC%80Windows-Terminal/">展开全文 >></a>
+        </p>
+        
+
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="hello-大作业" class="article article-type-hello  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -892,82 +960,6 @@
 
 
   
-    <article id="hello-04-C_C++数组指针" class="article article-type-hello  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/22/04-C_C++%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88/">C/C++数组指针</a>
-    </h1>
-  
-
-    
-    <a href="/2020/08/22/04-C_C++%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88/" class="archive-article-date">
-  	<time datetime="2020-08-22T08:54:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-22</time>
-</a>
-    
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-        
-        <blockquote>
-<h3 id="1-When-an-expression-that-has-integral-type-is-added-to-or-subtracted-from-a-pointer-the-integral-value-is-first-multiplied-by-the-size-of-the-object-pointed-to-The-result-has-the-type-of-the-pointer-operand"><a href="#1-When-an-expression-that-has-integral-type-is-added-to-or-subtracted-from-a-pointer-the-integral-value-is-first-multiplied-by-the-size-of-the-object-pointed-to-The-result-has-the-type-of-the-pointer-operand" class="headerlink" title="1.When an expression that has integral type is added to or subtracted from a pointer, the integral value is first multiplied by the size of the object pointed to. The result has the type of the pointer operand."></a>1.When an expression that has integral type is added to or subtracted from a pointer, the integral value is first multiplied by the size of the object pointed to. The result has the type of the pointer operand.</h3><h3 id="2-When-two-pointers-to-members-of-the-same-array-object-are-subtracted-the-difference-is-divided-by-the-size-of-a-member-The-result-represents-the-difference-of-the-subscripts-of-the-two-array-members"><a href="#2-When-two-pointers-to-members-of-the-same-array-object-are-subtracted-the-difference-is-divided-by-the-size-of-a-member-The-result-represents-the-difference-of-the-subscripts-of-the-two-array-members" class="headerlink" title="2.When two pointers to members of the same array object are subtracted, the difference is divided by the size of a member. The result represents the difference of the subscripts of the two array members."></a>2.When two pointers to members of the same array object are subtracted, the difference is divided by the size of a member. The result represents the difference of the subscripts of the two array members.</h3></blockquote>
-        
-        <a class="article-more-a" href="/2020/08/22/04-C_C++%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88/#more">more >></a>
-        
-        
-
-        
-    </div>
-    <div class="article-info article-info-index">
-        
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">汇编</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        
-
-        
-        <p class="article-more-link">
-            <a class="article-more-a" href="/2020/08/22/04-C_C++%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88/">展开全文 >></a>
-        </p>
-        
-
-        
-        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1090,19 +1082,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日常</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">python项目</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日常</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学业</a>
               </li>
             
             <div class="clearfix"></div>
